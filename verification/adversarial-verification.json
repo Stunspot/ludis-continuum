@@ -3,9 +3,9 @@
     "repository":  "Stunspot/ludis-continuum",
     "base_commit":  "8bc9d2886f6345d7cb77736022806b5e22d4990e",
     "content_fingerprint_algorithm":  "sha256(sorted sha256 two-space path newline records; final present files; verification/*.json excluded)",
-    "content_fingerprint":  "f142daeab7a55197cb1790f788c97f1e508446c59ed8fbb96e98f5a5ba3591d2",
+    "content_fingerprint":  "a8fe914dbf257f4d2a84ea6cdd5766aef8e0dca3bd90c60880a7471411ddd229",
     "fingerprint_file_count":  76,
-    "reviewed_at_utc":  "2026-08-12T00:26:05Z",
+    "reviewed_at_utc":  "2026-08-12T00:33:57Z",
     "review":  "Adversarial TestForge verification",
     "verdict":  "PASS",
     "checks":  [
@@ -34,5 +34,6 @@
                      "Candidate repository and static Pages source only; live deployment is pending.",
                      "Fresh-host discovery/invocation, live table quality, semantic spoiler safety, rules accuracy, VTT behavior, originality, and rights clearance were not inferred."
                  ],
-    "normalization_re_review":  "The entire TestForge suite reran PASS against fingerprint f142daeab7a55197cb1790f788c97f1e508446c59ed8fbb96e98f5a5ba3591d2."
+    "normalization_re_review":  "The entire TestForge suite reran PASS against repaired fingerprint a8fe914dbf257f4d2a84ea6cdd5766aef8e0dca3bd90c60880a7471411ddd229.",
+    "live_verification_repair":  "First live pass found one product defect: Pages guide omitted visible configuration guidance. The guide was repaired and all candidate reviews reran. A fragment-only custom-404 skip-link finding was verifier path-resolution error, not a site defect."
 }
