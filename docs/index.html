@@ -9,8 +9,10 @@
   <meta property="og:title" content="Ludis Continuum">
   <meta property="og:description" content="Choice-shaped games and fiction: playable pressure, legible consequence, governed continuity.">
   <meta property="og:url" content="https://stunspot.github.io/ludis-continuum/">
-  <meta property="og:image" content="https://stunspot.github.io/ludis-continuum/assets/ludis-continuum-hero.png">
-  <meta property="og:image:alt" content="A handcrafted player token faces several branching tabletop paths whose consequences reshape a miniature world and campaign ledger.">
+  <meta property="og:image" content="https://stunspot.github.io/ludis-continuum/assets/ludis-continuum-social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ludis Continuum — choice-shaped RPGs and fiction that remember consequence.">
   <meta name="twitter:card" content="summary_large_image">
   <title>Ludis Continuum · Choice-Shaped Games and Fiction</title>
   <link rel="stylesheet" href="style.css">
@@ -25,11 +27,11 @@
         <span>Ludis Continuum</span>
       </a>
       <div class="nav-links">
-        <a href="#modes">Delight modes</a>
-        <a href="#loop">Campaign loop</a>
+        <a href="start.html">Start</a>
+        <a href="guide.html">Guide</a>
+        <a href="trust.html">Trust</a>
+        <a href="#modes">Modes</a>
         <a href="#ledger">Ledger</a>
-        <a href="#prep">Playable prep</a>
-        <a href="#trust">Trust edge</a>
         <a href="https://github.com/Stunspot/ludis-continuum">GitHub</a>
       </div>
     </nav>
@@ -42,13 +44,13 @@
         <h1>Spark a situation.<br>Offer real choices.<br>Let consequence remember.</h1>
         <p class="lede">Ludis Continuum carries play and fiction from first imaginative pressure through live decisions, table evidence, canon governance, and the next playable horizon—without confiscating player agency or the creator’s voice.</p>
         <div class="actions">
-          <a class="button primary" href="https://github.com/Stunspot/ludis-continuum/blob/main/SKILL.md">Read the skill</a>
-          <a class="button secondary" href="https://github.com/Stunspot/ludis-continuum">Explore the source</a>
+          <a class="button primary" href="start.html">Install and begin</a>
+          <a class="button secondary" href="guide.html">Use the product</a>
         </div>
-        <p class="quiet">Contest edition 1.0.0 · MIT License · Setting-free · System-aware without fake rules certainty</p>
+        <p class="quiet">Contest edition 1.0.0 · Manual Codex and Claude Code skill source · MIT License</p>
       </div>
       <figure class="hero-visual">
-        <img src="assets/ludis-continuum-hero.png" width="1600" height="900" alt="A handcrafted player token stands at a branching tabletop path while several possible scenes and their consequences reshape a miniature world and blank campaign ledger.">
+        <img src="assets/ludis-continuum-pages-hero.png" width="1200" height="800" alt="A tabletop scene shows one player choice branching into changed relationships, a moving danger clock, and an updated campaign ledger.">
       </figure>
     </section>
 
@@ -174,10 +176,10 @@
       </div>
       <div class="trust-grid">
         <article><code>init_campaign.py</code><p>Create a workspace without overwriting existing state.</p></article>
-        <article><code>validate_ledger.py</code><p>Check IDs, links, status, visibility, authority, collisions, disputes, and approvals.</p></article>
-        <article><code>promote_object.py</code><p>Advance one GM-confirmed proposal to canon without silent overwrite.</p></article>
+        <article><code>validate_ledger.py</code><p>Check required state, unique IDs, status, visibility, links, authority, and session collisions.</p></article>
+        <article><code>promote_object.py</code><p>Advance one eligible proposal after an explicit operator assertion of GM approval.</p></article>
         <article><code>roll_table.py</code><p>Make seeded random selection reproducible.</p></article>
-        <article><code>export_player_safe.py</code><p>Export approved player-safe objects and reject secret references.</p></article>
+        <article><code>export_player_safe.py</code><p>Export approved player-safe objects after rejecting explicit links to GM-only objects.</p></article>
         <article><code>snapshot_campaign.py</code><p>Create a hashed archive without recursively nesting older snapshots.</p></article>
       </div>
       <aside class="trust-note">A clean validation run does not establish rules accuracy, spoiler freedom, safety, fun, balance, accessibility, VTT compatibility, table usability, originality, rights clearance, or publication readiness. Those claims require their own evidence.</aside>
@@ -197,7 +199,7 @@
 
   <footer>
     <p><strong>Ludis Continuum</strong> · Collaborative Dynamics · OpenAI Build Week contest edition.</p>
-    <p><a href="https://github.com/Stunspot/ludis-continuum">Repository</a> · <a href="https://github.com/Stunspot/ludis-continuum/blob/main/LICENSE.md">MIT License</a> · <a href="https://github.com/Stunspot/nova-the-optimal-ai-mind/tree/e42dd11646bc548b9ac29d6f700370365ee68986/plugins/nova-the-optimal-ai/skills/ludis-continuum">Contest source</a></p>
+    <p><a href="start.html">Start</a> · <a href="guide.html">Guide</a> · <a href="trust.html">Trust</a> · <a href="https://github.com/Stunspot/ludis-continuum">Repository</a> · <a href="https://github.com/Stunspot/ludis-continuum/blob/main/LICENSE.md">MIT License</a></p>
   </footer>
 </body>
 </html>
