@@ -26,7 +26,7 @@ git clone https://github.com/Stunspot/ludis-continuum "$HOME/.codex/skills/ludis
 python3 -B "$HOME/.codex/skills/ludis-continuum/scripts/self_check.py"
 ```
 
-Restart Codex after installation. Confirm that **Ludis Continuum** appears in the available skill list, then run the acceptance prompt below.
+Restart Codex after installation. Confirm that **Ludis Continuum** appears in the available skill list, then run the acceptance prompt in [Verify host discovery and invocation](#verify-host-discovery-and-invocation).
 
 ### Project-scoped install
 
@@ -56,7 +56,7 @@ git clone https://github.com/Stunspot/ludis-continuum "$HOME/.claude/skills/ludi
 python3 -B "$HOME/.claude/skills/ludis-continuum/scripts/self_check.py"
 ```
 
-Restart Claude Code. Confirm that the skill is listed or that `/ludis-continuum` is available, then run the acceptance prompt below. Host UI and invocation syntax can vary by release; discovery is the authoritative check.
+Restart Claude Code. Confirm that the skill is listed or that `/ludis-continuum` is available, then run the acceptance prompt in [Verify host discovery and invocation](#verify-host-discovery-and-invocation). Host UI and invocation syntax can vary by release; discovery is the authoritative check.
 
 ### Project-scoped install
 
