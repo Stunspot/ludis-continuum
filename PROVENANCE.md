@@ -50,4 +50,4 @@ Receipts are stored under [`verification/`](verification/) and bind to the exact
 
 ## Interpreting PASS
 
-A repository PASS means the final commit, live repository, rendered Pages deployment, navigation, public assets, and bound review evidence were rechecked. It does not widen the product's claims beyond the evidence table above.
+A repository PASS means the final commit, live repository, rendered Pages deployment, navigation, public assets, and bound review evidence were rechecked. It does not widen the product's claims beyond the [Evidence ladder](#evidence-ladder).
