@@ -3,9 +3,9 @@
     "repository":  "Stunspot/ludis-continuum",
     "base_commit":  "8bc9d2886f6345d7cb77736022806b5e22d4990e",
     "content_fingerprint_algorithm":  "sha256(sorted sha256 two-space path newline records; final present files; verification/*.json excluded)",
-    "content_fingerprint":  "f142daeab7a55197cb1790f788c97f1e508446c59ed8fbb96e98f5a5ba3591d2",
+    "content_fingerprint":  "a8fe914dbf257f4d2a84ea6cdd5766aef8e0dca3bd90c60880a7471411ddd229",
     "fingerprint_file_count":  76,
-    "reviewed_at_utc":  "2026-08-12T00:26:05Z",
+    "reviewed_at_utc":  "2026-08-12T00:33:57Z",
     "review":  "Hesperos customer documentation cycle",
     "verdict":  "PASS_FOR_PUBLICATION_CANDIDATE",
     "documents_read":  [
@@ -59,7 +59,8 @@
                                   "Clarified campaign-initialization evidence sentence.",
                                   "Replaced overbroad Pages validator, promotion, and export claims with executable behavior.",
                                   "Corrected motion statement to match smooth-scroll CSS and reduced-motion override.",
-                                  "Re-reviewed after repository-policy LF normalization; decoded content and customer journey were unchanged."
+                                  "Re-reviewed after repository-policy LF normalization; decoded content and customer journey were unchanged.",
+                                  "Live verification found the Pages guide configuration gap; added a dedicated configuration section and re-read the complete guide."
                               ],
     "evidence_limits":  [
                             "Fresh-host installation, Codex/Claude discovery and invocation, live table quality, balance, rules accuracy, semantic spoiler safety, originality, rights clearance, and VTT behavior were not inferred.",

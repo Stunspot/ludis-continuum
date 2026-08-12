@@ -3,9 +3,9 @@
     "repository":  "Stunspot/ludis-continuum",
     "base_commit":  "8bc9d2886f6345d7cb77736022806b5e22d4990e",
     "content_fingerprint_algorithm":  "sha256(sorted sha256 two-space path newline records; final present files; verification/*.json excluded)",
-    "content_fingerprint":  "f142daeab7a55197cb1790f788c97f1e508446c59ed8fbb96e98f5a5ba3591d2",
+    "content_fingerprint":  "a8fe914dbf257f4d2a84ea6cdd5766aef8e0dca3bd90c60880a7471411ddd229",
     "fingerprint_file_count":  76,
-    "reviewed_at_utc":  "2026-08-12T00:26:05Z",
+    "reviewed_at_utc":  "2026-08-12T00:33:57Z",
     "review":  "Separate documentation accessibility review",
     "verdict":  "PASS_WITH_BOUNDED_EVIDENCE",
     "checks":  {
@@ -25,5 +25,5 @@
                      "Static semantic and CSS review; no browser, screen-reader, keyboard hardware, zoom, or cognitive walkthrough execution.",
                      "No accessibility certification for generated game material or third-party host UI."
                  ],
-    "normalization_re_review":  "Full semantic, focus, reflow, reduced-motion, and contrast review reran PASS after LF normalization."
+    "normalization_re_review":  "Full semantic, focus, reflow, reduced-motion, image, and contrast review reran PASS after the Pages guide repair."
 }
