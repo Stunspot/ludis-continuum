@@ -2,9 +2,9 @@
 
 ![A tabletop campaign workspace turns a live choice into branching consequences, changed relationships, and a governed campaign ledger.](docs/assets/ludis-continuum-readme-hero.png)
 
-> Choice-shaped RPGs and fiction that remember what happened without stealing the wheel.
+> Choice-shaped tabletop RPGs that remember what happened without stealing the wheel.
 
-Ludis Continuum is a setting-free skill for players, game masters, and fiction creators who need playable pressure, consequential choices, and continuity that survives more than one scene. It can open a game immediately, forge a character or world element, operate a campaign through a governed JSON ledger, and turn that campaign into inspectable GM/player Tonight Packs or narrow offline VTT import bundles.
+Ludis Continuum creates and runs choice-driven tabletop role-playing games (TTRPGs), solo adventures, and gameable fiction. Use it with Dungeons & Dragons, Pathfinder, Call of Cthulhu, indie systems, or homebrew: it can open play immediately, forge characters and worlds, prepare and track a campaign through a governed JSON ledger, and export inspectable GM/player Tonight Packs or narrow offline Alchemy and Foundry VTT bundles.
 
 It does **not** replace a GM, certify balance, reproduce a game system, decide canon by confidence, or make private campaign material safe to publish. Generated material is proposed until its human owner accepts it.
 
