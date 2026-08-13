@@ -29,6 +29,7 @@
       <div class="nav-links">
         <a href="start.html">Start</a>
         <a href="guide.html">Guide</a>
+        <a href="exports.html">Exports</a>
         <a href="trust.html">Trust</a>
         <a href="#modes">Modes</a>
         <a href="#ledger">Ledger</a>
@@ -46,8 +47,9 @@
         <div class="actions">
           <a class="button primary" href="start.html">Install and begin</a>
           <a class="button secondary" href="guide.html">Use the product</a>
+          <a class="button secondary" href="exports.html">Build an offline export</a>
         </div>
-        <p class="quiet">Contest edition 1.0.0 · Manual Codex and Claude Code skill source · MIT License</p>
+        <p class="quiet">Source edition 1.1.0 · Manual Codex and Claude Code skill source · MIT License</p>
       </div>
       <figure class="hero-visual">
         <img src="assets/ludis-continuum-pages-hero.png" width="1200" height="800" alt="A tabletop scene shows one player choice branching into changed relationships, a moving danger clock, and an updated campaign ledger.">
@@ -59,7 +61,7 @@
         <p class="eyebrow">Choose the delight mode</p>
         <h2>Begin where the player or creator needs value now.</h2>
       </div>
-      <div class="mode-grid">
+      <div class="mode-grid four">
         <article class="mode-card play">
           <span class="mode-kicker">PLAY NOW</span>
           <h3>Enter the fiction in the first response.</h3>
@@ -77,6 +79,12 @@
           <h3>Keep the table’s reality governable.</h3>
           <p>Use the campaign ledger, consent contract, prep loop, player-safe exports, deterministic checks, and explicit GM approval for canon mutation.</p>
           <p class="mode-proof">First proof: contradictions surfaced and the next session made playable.</p>
+        </article>
+        <article class="mode-card export">
+          <span class="mode-kicker">EXPORT &amp; VTT HANDOFF</span>
+          <h3>Turn governed state into files other tools can speak.</h3>
+          <p>Build a neutral Ludis Pack, exact-byte player handoff, Alchemy character JSON, or Foundry v14 offline module without granting the target custody of canon.</p>
+          <p class="mode-proof">First proof: an inspectable ZIP with a loss report and honest support label. <a href="exports.html">Build one.</a></p>
         </article>
       </div>
     </section>
@@ -138,7 +146,7 @@
       </div>
       <div class="visibility-pair">
         <article><span>GM_ONLY</span><h3>Secrets stay secret.</h3><p>Visibility is part of the object contract, not a filename convention.</p></article>
-        <article><span>PLAYER_SAFE</span><h3>Exports earn approval.</h3><p>Only approved objects with validated references cross the player-safe boundary.</p></article>
+        <article><span>PLAYER_SAFE</span><h3>Candidate bytes earn approval.</h3><p>The projection can include structurally valid, export-eligible <code>player_safe</code> objects in canon or non-canon statuses. A human approves the complete candidate, not each object.</p></article>
       </div>
     </section>
 
@@ -179,7 +187,8 @@
         <article><code>validate_ledger.py</code><p>Check required state, unique IDs, status, visibility, links, authority, and session collisions.</p></article>
         <article><code>promote_object.py</code><p>Advance one eligible proposal after an explicit operator assertion of GM approval.</p></article>
         <article><code>roll_table.py</code><p>Make seeded random selection reproducible.</p></article>
-        <article><code>export_player_safe.py</code><p>Export approved player-safe objects after rejecting explicit links to GM-only objects.</p></article>
+        <article><code>export_campaign.py</code><p>Build neutral GM packs or reviewable player candidates, then bind approval to exact candidate and preview bytes.</p></article>
+        <article><code>export_target.py</code><p>Build statically validated Alchemy character JSON or a Foundry v14 offline module with a loss report.</p></article>
         <article><code>snapshot_campaign.py</code><p>Create a hashed archive without recursively nesting older snapshots.</p></article>
       </div>
       <aside class="trust-note">A clean validation run does not establish rules accuracy, spoiler freedom, safety, fun, balance, accessibility, VTT compatibility, table usability, originality, rights clearance, or publication readiness. Those claims require their own evidence.</aside>
@@ -199,7 +208,7 @@
 
   <footer>
     <p><strong>Ludis Continuum</strong> · Collaborative Dynamics · OpenAI Build Week contest edition.</p>
-    <p><a href="start.html">Start</a> · <a href="guide.html">Guide</a> · <a href="trust.html">Trust</a> · <a href="https://github.com/Stunspot/ludis-continuum">Repository</a> · <a href="https://github.com/Stunspot/ludis-continuum/blob/main/LICENSE.md">MIT License</a></p>
+    <p><a href="start.html">Start</a> · <a href="guide.html">Guide</a> &middot; <a href="exports.html">Exports</a> &middot; <a href="trust.html">Trust</a> · <a href="https://github.com/Stunspot/ludis-continuum">Repository</a> · <a href="https://github.com/Stunspot/ludis-continuum/blob/main/LICENSE.md">MIT License</a></p>
   </footer>
 </body>
 </html>

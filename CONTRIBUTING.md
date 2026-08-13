@@ -22,6 +22,9 @@ For tool changes, add or document a focused positive and negative probe. For doc
 
 An instrument should own one coherent creative transformation, remain setting-free, preserve user canon, distinguish player-facing and GM-only layers where relevant, and avoid inventing authoritative mechanics. Update the manifest intentionally and explain provenance.
 
+## Export adapter changes
+
+Keep target mapping pure and deterministic: projection and frozen asset bytes go in; a path-to-bytes bundle and explicit loss report come out. Add positive, blocking, malformed-input, determinism, and no-input-mutation probes. Never infer game mechanics, relax player visibility, add network credentials, or promote a local import observation into a product compatibility claim. Target a named official format/version and link the authority used.
 ## Documentation and Pages
 
 A content change invalidates prior review receipts. Run a fresh Hesperos documentation review, accessibility review, and adversarial verification against the final candidate. Do not edit old receipts to make them fit new bytes.

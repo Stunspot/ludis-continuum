@@ -17,12 +17,28 @@ REQUIRED = (
     "knowledge/instruments/manifest.json",
     "assets/campaign.template/campaign-ledger.json",
     "schemas/campaign-ledger.schema.json",
+    "schemas/ludis-pack.schema.json",
+    "schemas/alchemy-character.schema.json",
+    "schemas/foundry-v14-bundle.schema.json",
+    "schemas/import-observation.schema.json",
+    "EXPORTS-AND-VTT.md",
+    "knowledge/export-and-vtt-handoffs.md",
+    "examples/tonight-pack/campaign/campaign-ledger.json",
+    "examples/tonight-pack/campaign/assets/abandoned-tollhouse-map.png",
+    "examples/tonight-pack/campaign/assets/mara-venn-token.png",
     "scripts/init_campaign.py",
     "scripts/validate_ledger.py",
     "scripts/promote_object.py",
     "scripts/roll_table.py",
     "scripts/export_player_safe.py",
+    "scripts/export_campaign.py",
+    "scripts/export_target.py",
+    "scripts/record_import_observation.py",
+    "scripts/exportlib.py",
+    "scripts/adapters.py",
+    "scripts/migrate_ledger.py",
     "scripts/snapshot_campaign.py",
+    "assets/foundry-v14-module/scripts/importer.mjs",
 )
 
 REMOVED = (
@@ -61,12 +77,32 @@ def main() -> int:
 
     for rel in (
         "schemas/campaign-ledger.schema.json",
+        "schemas/ludis-pack.schema.json",
+        "schemas/alchemy-character.schema.json",
+        "schemas/foundry-v14-bundle.schema.json",
+        "schemas/import-observation.schema.json",
         "assets/campaign.template/campaign-ledger.json",
-    ):
+        "examples/tonight-pack/campaign/campaign-ledger.json",    ):
         try:
             json.loads((ROOT / rel).read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError) as exc:
             errors.append(f"invalid JSON {rel}: {exc}")
+
+    example_path = ROOT / "examples" / "tonight-pack" / "campaign" / "campaign-ledger.json"
+    try:
+        from ledgerlib import validate
+        example = json.loads(example_path.read_text(encoding="utf-8"))
+        for issue in validate(example):
+            errors.append(f"invalid Tonight Pack example: {issue}")
+        campaign_root = example_path.parent
+        for asset in example.get("assets", []):
+            asset_path = campaign_root / asset.get("path", "")
+            if not asset_path.is_file():
+                errors.append(f"missing example asset: {asset.get('id')}")
+            elif asset.get("sha256") != sha256(asset_path):
+                errors.append(f"example asset hash mismatch: {asset.get('id')}")
+    except (OSError, ValueError, json.JSONDecodeError) as exc:
+        errors.append(f"invalid Tonight Pack example: {exc}")
 
     if any(path.is_symlink() for path in ROOT.rglob("*")):
         errors.append("symlink present")

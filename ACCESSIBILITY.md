@@ -12,6 +12,8 @@ Ludis Continuum documentation is designed for keyboard access, readable reflow, 
 - Social-card text is duplicated in page metadata and nearby HTML.
 - Tables are used only for genuine relationships and remain readable on narrow screens.
 - Code samples are copyable text, not images.
+- Generated map and token examples carry purpose-based alt text in the ledger and explanatory prose nearby.
+- Player approval previews use a declared language, logical headings, labeled tables, visible borders, and wrap long hashes. The preview remains partial; approval also requires review of every candidate member, including listening to audio, inspecting other non-rendered formats, and treating code as text without executing it.
 - There is no animated content; smooth anchor scrolling is disabled under `prefers-reduced-motion`.
 - Color is paired with labels for status and visibility.
 
@@ -23,7 +25,7 @@ Consent, disability, and accommodation information can be sensitive. Record only
 
 ## Known limits
 
-- The repository does not include audio, captions, transcripts, tactile maps, or a VTT interface.
+- The repository does not include bundled audio, captions, transcripts, tactile maps, or a VTT interface. Exported metadata cannot make a target VTT accessible by itself.
 - Markdown rendering and skill invocation UI belong to the host and may vary.
 - Hero artwork is supplementary; it is not intended to communicate instructions.
 - Automated contrast and markup checks do not replace keyboard, zoom, screen-reader, or cognitive walkthroughs.
