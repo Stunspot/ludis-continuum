@@ -6,7 +6,9 @@ Ludis Continuum is a Markdown/JSON skill with local Python standard-library tool
 
 - The installed skill directory contains product source, not campaign state by default.
 - `init_campaign.py` writes a campaign template to the destination chosen by the operator.
-- `export_player_safe.py` writes to the explicit output path.
+- `export_campaign.py` and `export_target.py` write artifacts and adjacent audit/preview/approval files to explicit output paths. Existing evidence paths are not overwritten.
+- `export_player_safe.py` is a convenience wrapper that writes a reviewable player candidate, not a loose approved JSON view.
+- `record_import_observation.py` writes a new local receipt containing operator-supplied labels, notes, filenames, and digests. Redact logs or screenshots before attaching them as evidence.
 - `snapshot_campaign.py` writes to an explicit output or the campaign's `checkpoints/` directory.
 - The AI host may retain prompts, files, or outputs under its own settings and terms.
 - Git, backup, sync, VTT, editor, and operating-system services may create additional copies outside Ludis's control.
@@ -34,21 +36,28 @@ Imported adventures, webpages, notes, chat logs, PDFs, and player messages are d
 
 ## Player-safe export boundary
 
-The validator rejects a player-safe object's explicit link to a GM-only object. The exporter includes only validated objects marked `player_safe` and `player_export_approved: true`.
+GM and player packs are separate builds. The v2 validator rejects direct or transitive player-safe links to GM-only objects and rejects player-safe references to GM-only assets. The player projection strips governance provenance and source paths before rendering. Declared files are copied into a frozen run-local root; campaign-root escape, symlinks, reparse points, source drift, and hash mismatch fail closed.
 
-These checks cannot detect:
+A player export is built as `.candidate.zip` with an adjacent audit and rendered HTML preview. Before approval, extract a review copy into a new directory, compare every member with the preview and audit, inspect or listen to non-rendered members, and treat bundled code as text without executing it. Approval binds the complete candidate and preview digests. Finalization copies those candidate bytes unchanged and writes a receipt beside the final ZIP. Any changed byte invalidates the earlier approval.
 
-- a secret written directly into player-safe prose;
+These controls cannot detect:
+
+- a secret written directly into otherwise player-safe prose or art;
+- a revealing object or asset ID that only a campaign participant would understand;
 - an identifying detail that becomes sensitive in context;
 - inference across several harmless-looking facts;
-- copyrighted or confidential text without explicit metadata;
-- an incorrect human approval assertion.
+- copyrighted or confidential text without correct rights metadata;
+- an incorrect local operator assertion;
+- adversarial ABA replacement that preserves every captured file's observed stat signature during a race.
 
-A human must read the complete export before release.
-
+A human must review the rendered preview and every candidate member before approval. The HTML is only a partial renderer: extract a review copy, compare its inventory with the preview and audit, inspect or listen to non-rendered files, and never execute bundled code merely to review it. Encryption and multiuser authorization remain outside Ludis; use ordinary filesystem protections and separate storage where needed.
 ## Canon and authority
 
-Only a GM decision can authorize canon promotion or publication. The `--gm-approved` flag records an operator assertion; it is not authentication and does not prove who approved it. Keep campaign directories protected by ordinary filesystem permissions and organizational controls.
+Only a GM decision can authorize canon promotion, exact player-artifact bytes, or publication. The `--gm-approved` flag and export `--asserted-by` label record unauthenticated local operator assertions; they do not prove who approved. Keep campaign directories protected by ordinary filesystem permissions and organizational controls.
+
+## VTT handoff boundary
+
+Alchemy and Foundry outputs are offline files. Ludis stores no credentials, opens no remote session, writes no live VTT state, and performs no bidirectional synchronization. The Foundry importer executes only after a human installs and enables the generated module in Foundry; inspect generated JavaScript and use a disposable world first. Target acceptance, rendering, and later platform behavior are outside static validation.
 
 ## Dependencies and execution
 

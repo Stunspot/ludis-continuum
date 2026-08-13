@@ -4,7 +4,7 @@
 
 > Choice-shaped RPGs and fiction that remember what happened without stealing the wheel.
 
-Ludis Continuum is a setting-free skill for players, game masters, and fiction creators who need playable pressure, consequential choices, and continuity that survives more than one scene. It can open a game immediately, forge a character or world element, or help operate a campaign through a governed JSON ledger and deterministic local tools.
+Ludis Continuum is a setting-free skill for players, game masters, and fiction creators who need playable pressure, consequential choices, and continuity that survives more than one scene. It can open a game immediately, forge a character or world element, operate a campaign through a governed JSON ledger, and turn that campaign into inspectable GM/player Tonight Packs or narrow offline VTT import bundles.
 
 It does **not** replace a GM, certify balance, reproduce a game system, decide canon by confidence, or make private campaign material safe to publish. Generated material is proposed until its human owner accepts it.
 
@@ -16,6 +16,7 @@ It does **not** replace a GM, certify balance, reproduce a game system, decide c
 - A player who wants a choice-driven solo scene with legible controls and consequences.
 - A fiction creator who wants characters, places, factions, magic, or mysteries with causal traction.
 - A campaign steward who needs canon, proposals, rumors, secrets, observations, and approvals kept distinct.
+- A returning or current VTT user who wants maps, tokens, handouts, tables, or campaign content exported without giving a VTT custody of canon.
 
 Ordinary business writing, generic prose cleanup, authoritative rules lookup, and autonomous play on behalf of human participants remain outside Ludis.
 
@@ -32,6 +33,12 @@ Turn a thin prompt into a usable character, place, faction, object, scene, or wo
 ### Campaign operations
 
 Prepare the next playable horizon, record what actually happened, surface contradictions, govern canon promotion, separate GM-only from player-safe material, and carry consequence forward.
+
+### Export and VTT handoff
+
+Turn a v2 campaign ledger into a neutral `cd-ludis-pack/v1` Tonight Pack containing handouts, tables, scene/grid/token/audio metadata, assets, digests, and a loss report. Build player material as a reviewable candidate. Before approval, extract a review copy into a new directory, compare every member with the inventory and audit, inspect or listen to everything the preview does not render, and treat bundled code as text without executing it. Approve the exact candidate and preview bytes, then finalize the same bytes unchanged.
+
+Ludis also emits narrow Alchemy character JSON and a Foundry v14.365 offline module importer for core JournalEntry, RollTable, and Scene/Level content. Player-audience Foundry bundles assign those core documents the `OBSERVER` permission level; GM bundles keep them GM-only. These are file handoffs, not MCP, live control, sync, or a claim that a static check observed a successful import or non-GM visibility.
 
 ## Quick start
 
@@ -110,15 +117,43 @@ The bundled tools use the Python standard library only.
 
 | Tool | Responsibility |
 |---|---|
-| `scripts/init_campaign.py` | Create a campaign workspace without overwriting a non-empty destination. |
-| `scripts/validate_ledger.py` | Check IDs, references, status, visibility, authority, and session collisions. |
-| `scripts/promote_object.py` | Require an exact object and explicit GM approval before canon promotion. |
+| `scripts/init_campaign.py` | Create a v2 workspace with an explicit or owner-seeded stable campaign ID. |
+| `scripts/validate_ledger.py` | Check v2 or legacy ledger invariants, IDs, graph visibility, assets, authority, approvals, and collisions. |
+| `scripts/migrate_ledger.py` | Dry-run or write a non-destructive legacy `0.1.0` to v2 migration with exact-byte source copy. |
+| `scripts/promote_object.py` | Record one explicit, unauthenticated local canon-promotion assertion. |
 | `scripts/roll_table.py` | Make seeded random selection reproducible. |
-| `scripts/export_player_safe.py` | Export only approved player-safe objects after ledger validation. |
-| `scripts/snapshot_campaign.py` | Create a hashed archive without recursively nesting old checkpoint ZIPs. |
-| `scripts/self_check.py` | Verify curated package contracts and 32 instrument cores. |
+| `scripts/export_campaign.py` | Build, verify, preview, and exact-byte approve neutral GM/player Tonight Packs. |
+| `scripts/export_target.py` | Build statically validated Alchemy or Foundry v14 target bundles with loss reports. |
+| `scripts/record_import_observation.py` | Bind one real target attempt to exact bundle/evidence bytes without promoting product-wide compatibility. |
+| `scripts/export_player_safe.py` | Convenience wrapper for a reviewable player candidate; no legacy boolean grants current approval. |
+| `scripts/snapshot_campaign.py` | Create a deterministic content-addressed recovery snapshot without nesting checkpoints. |
+| `scripts/self_check.py` | Verify curated runtime contracts, schemas, examples, generated asset hashes, and 32 instrument cores. |
 
 A passing script establishes only the check it performs. It does not prove fun, safety, spoiler freedom outside the validated graph, originality, accessibility, balance, VTT compatibility, rights clearance, rules accuracy, or publication readiness.
+
+## First offline export
+
+Create a campaign workspace outside the skill directory:
+
+```powershell
+python -B scripts/init_campaign.py C:\Games\MyCampaign --campaign-id campaign-my-game --title "My Game"
+python -B scripts/validate_ledger.py C:\Games\MyCampaign\campaign-ledger.json
+```
+
+After adding objects and declared assets, build a GM pack:
+
+```powershell
+python -B scripts/export_campaign.py build C:\Games\MyCampaign output\my-game-gm.zip --audience gm
+```
+
+Player material deliberately takes two steps:
+
+```powershell
+python -B scripts/export_campaign.py build C:\Games\MyCampaign output\my-game-player.candidate.zip --audience player
+python -B scripts/export_campaign.py approve output\my-game-player.candidate.zip --asserted-by "local GM label"
+```
+
+Review the generated `.preview.html` and the complete candidate before approval: extract a review copy into a new directory, compare every member with the preview and audit, inspect or listen to every non-rendered member, and treat code as text without executing it. Automated visibility checks do not understand secrets embedded in ordinary prose. See [Export campaign assets and VTT bundles](EXPORTS-AND-VTT.md) and the [generated Tonight Pack example](examples/tonight-pack/README.md).
 
 ## Focused creative instruments
 
@@ -142,6 +177,6 @@ Exact review receipts and test boundaries are published in [`verification/`](ver
 
 Ludis Continuum is released under the [MIT License](LICENSE.md). Report defects through [GitHub Issues](https://github.com/Stunspot/ludis-continuum/issues), read [SUPPORT.md](SUPPORT.md) before sharing campaign material, review [SECURITY.md](SECURITY.md) for sensitive reports, and follow [CONTRIBUTING.md](CONTRIBUTING.md) for changes.
 
-Contest edition: `1.0.0`. This standalone repository preserves the curated public source from the Nova + MIND OpenAI Build Week release; private development history and worked campaign worlds are excluded.
+Current source edition: `1.1.0`. This standalone repository preserves the curated public source from the Nova + MIND OpenAI Build Week release; private development history and worked campaign worlds are excluded.
 
 🌐‍💠

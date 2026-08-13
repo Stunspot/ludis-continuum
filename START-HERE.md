@@ -122,18 +122,42 @@ If the skill is absent, host discovery is **not verified** even when `SKILL.md` 
 Choose a data directory outside the installed skill. From the repository or installed skill directory:
 
 ```powershell
-python -B scripts/init_campaign.py C:\Games\MyCampaign
+python -B scripts/init_campaign.py C:\Games\MyCampaign --campaign-id campaign-my-game --title "My Game"
 python -B scripts/validate_ledger.py C:\Games\MyCampaign\campaign-ledger.json
 ```
 
 macOS/Linux:
 
 ```bash
-python3 -B scripts/init_campaign.py "$HOME/Games/MyCampaign"
+python3 -B scripts/init_campaign.py "$HOME/Games/MyCampaign" --campaign-id campaign-my-game --title "My Game"
 python3 -B scripts/validate_ledger.py "$HOME/Games/MyCampaign/campaign-ledger.json"
 ```
 
-Initialization refuses to overwrite a non-empty destination. Edit `campaign-ledger.json` only after making a backup or snapshot.
+Initialization requires an owner-chosen stable ID or `--campaign-seed` and refuses to overwrite a non-empty destination. Edit `campaign-ledger.json` only after making a backup or snapshot. For a `0.1.0` ledger, first inspect `campaign.id`: if it already contains a valid stable ID, omit identity flags or repeat that exact value; use `--campaign-id` or `--campaign-seed` only when the legacy ledger has no ID. Preview migration without `--output`, review the report, then rerun the same identity choice with `--output NEW-LEDGER`. See [the complete migration procedure](EXPORTS-AND-VTT.md#migrate-a-legacy-ledger-first).
+
+## First campaign export
+
+The generated example is the shortest complete tour:
+
+```powershell
+python -B scripts/validate_ledger.py examples\tonight-pack\campaign\campaign-ledger.json
+python -B scripts/export_campaign.py build examples\tonight-pack\campaign output\kindly-cellar-gm.zip --audience gm
+python -B scripts/export_campaign.py verify output\kindly-cellar-gm.zip
+```
+
+For player material, build a candidate rather than a final ZIP:
+
+```powershell
+python -B scripts/export_campaign.py build examples\tonight-pack\campaign output\kindly-cellar-player.candidate.zip --audience player
+```
+
+Open the adjacent `.preview.html`. Then extract the candidate into a new review directory, compare every member with the preview and audit, inspect or listen to everything the preview does not render, and treat bundled code as text without executing it. Only then approve the exact bytes:
+
+```powershell
+python -B scripts/export_campaign.py approve output\kindly-cellar-player.candidate.zip --asserted-by "local GM label"
+```
+
+Expected result: the final player ZIP has the same SHA-256 as the candidate, and an adjacent receipt binds the candidate and preview digests. The operator label is not authenticated identity. See [Export campaign assets and VTT bundles](EXPORTS-AND-VTT.md) for Alchemy, Foundry, UVTT pass-through, failure recovery, and evidence limits.
 
 ## A successful first campaign request
 
@@ -149,4 +173,4 @@ Expected output includes a compact GM packet, separately labeled player-safe mat
 
 ## Next
 
-Read [DOCUMENTATION.md](DOCUMENTATION.md) for workflows and tool contracts, [SECURITY.md](SECURITY.md) before handling real player data, and [SUPPORT.md](SUPPORT.md) for updates, removal, recovery, and cleanup.
+Read [DOCUMENTATION.md](DOCUMENTATION.md) for campaign workflows, [EXPORTS-AND-VTT.md](EXPORTS-AND-VTT.md) for file and VTT handoffs, [SECURITY.md](SECURITY.md) before handling real player data, and [SUPPORT.md](SUPPORT.md) for updates, removal, recovery, and cleanup.
