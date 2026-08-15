@@ -1,0 +1,10 @@
+{
+  "schema": "cd-settled-family-build-receipt/v1",
+  "family": "ludis-continuum",
+  "version": "1.1.0",
+  "status": "canonical-built-backup-pending",
+  "canonical_zip": "Ludis-Continuum-v1.1.0.zip",
+  "canonical_zip_sha256": "d5b04490253916205a789bb0febbb14a478a83009dfe7345bcec2ec1d980509a",
+  "canonical_zip_member_count": 218,
+  "backup": null
+}
