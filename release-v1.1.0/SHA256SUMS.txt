@@ -1,2 +1,2 @@
-7949927c7df620dba4c042d0b91823d2398d8ab9b0009793a0e292b665118014  codex/ludis-continuum/
-f7cd9dcf98c30f80a4416c78148b84c714e6c288b96e7b420ffe70522678a4b4  claude/ludis-continuum-v1.1.0.zip
+b01e16e5a7f42bcfa80066cf56cac4abee93340452222adb1b6dad79bcc0cad9  codex/ludis-continuum/
+2a29e0f5801ab773b22dda76ca5ecbbfe7467b3d56e6454fce7c179e4bf79d17  claude/ludis-continuum-v1.1.0.zip

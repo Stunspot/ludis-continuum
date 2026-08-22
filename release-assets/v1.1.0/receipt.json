@@ -4,7 +4,7 @@
   "version": "1.1.0",
   "status": "canonical-built-backup-pending",
   "canonical_zip": "Ludis-Continuum-v1.1.0.zip",
-  "canonical_zip_sha256": "d5b04490253916205a789bb0febbb14a478a83009dfe7345bcec2ec1d980509a",
+  "canonical_zip_sha256": "761c97553caca9107b7b60a4d8e23ad2324dee21b85d3f3feda8f52d9234e27a",
   "canonical_zip_member_count": 218,
   "backup": null
 }

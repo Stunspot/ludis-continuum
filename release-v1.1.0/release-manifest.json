@@ -5,24 +5,24 @@
   "version": "1.1.0",
   "source_repository": "https://github.com/Stunspot/ludis-continuum",
   "source_basis_commit": "6c6c2e560952b647e814bd4730465488334c4bb7",
-  "runtime_tree_sha256": "7949927c7df620dba4c042d0b91823d2398d8ab9b0009793a0e292b665118014",
+  "runtime_tree_sha256": "b01e16e5a7f42bcfa80066cf56cac4abee93340452222adb1b6dad79bcc0cad9",
   "tree_digest_algorithm": "sha256(canonical JSON inventory sorted by relative path; fields path, bytes, sha256)",
   "claim_boundary": "Exact static package custody; live hosts, VTTs, people, and Discord require separate observation.",
   "distributions": {
     "codex": {
       "path": "codex/ludis-continuum",
       "file_count": 82,
-      "tree_sha256": "7949927c7df620dba4c042d0b91823d2398d8ab9b0009793a0e292b665118014"
+      "tree_sha256": "b01e16e5a7f42bcfa80066cf56cac4abee93340452222adb1b6dad79bcc0cad9"
     },
     "claude": {
       "path": "claude/ludis-continuum-v1.1.0.zip",
-      "bytes": 5589517,
-      "sha256": "f7cd9dcf98c30f80a4416c78148b84c714e6c288b96e7b420ffe70522678a4b4"
+      "bytes": 5589362,
+      "sha256": "2a29e0f5801ab773b22dda76ca5ecbbfe7467b3d56e6454fce7c179e4bf79d17"
     },
     "source": {
       "path": "source/ludis-continuum-v1.1.0",
       "file_count": 126,
-      "tree_sha256": "f31f075aecc18a6cfa3201e2d8c44411f65c50f350648481b90d3f5fd6d2d8ff"
+      "tree_sha256": "2f5ed8848c58bfe2a5c261b6aad6a6b687f8a091ac8346490171d35d6bc4c178"
     }
   },
   "files": [
@@ -59,7 +59,7 @@
     {
       "path": "SHA256SUMS.txt",
       "bytes": 189,
-      "sha256": "2fd92f591cf0da81b38a69808c9893b290f10b2731993840f2b911efee325027"
+      "sha256": "e54261725e713129fa029739380bce461019c17eb5b35e1e00f15e1c195b3142"
     },
     {
       "path": "START-HERE.md",
@@ -68,8 +68,8 @@
     },
     {
       "path": "claude/ludis-continuum-v1.1.0.zip",
-      "bytes": 5589517,
-      "sha256": "f7cd9dcf98c30f80a4416c78148b84c714e6c288b96e7b420ffe70522678a4b4"
+      "bytes": 5589362,
+      "sha256": "2a29e0f5801ab773b22dda76ca5ecbbfe7467b3d56e6454fce7c179e4bf79d17"
     },
     {
       "path": "codex/ludis-continuum/EXPORTS-AND-VTT.md",
@@ -88,8 +88,8 @@
     },
     {
       "path": "codex/ludis-continuum/SKILL.md",
-      "bytes": 12844,
-      "sha256": "a9e268ca8cfde41218ca6694a13605fd00c9a328c2cbe7eb6ffe90bf608ec04e"
+      "bytes": 12684,
+      "sha256": "774f99bd3a8d2f3a5ac1cc25f590fac1141d75d836e0483998cd540117f6908e"
     },
     {
       "path": "codex/ludis-continuum/SUPPORT.md",
@@ -98,8 +98,8 @@
     },
     {
       "path": "codex/ludis-continuum/agents/openai.yaml",
-      "bytes": 280,
-      "sha256": "5d71000a9a48db2e0a322197fc93cad7668bf7b6bc975bfd056982543a0a4882"
+      "bytes": 285,
+      "sha256": "0af8c5649bab44824b9c0f0121fe338d5ddf7ac372ec8f9b69cf004f40c11b1c"
     },
     {
       "path": "codex/ludis-continuum/assets/campaign.template/campaign-ledger.json",
@@ -543,8 +543,8 @@
     },
     {
       "path": "source/ludis-continuum-v1.1.0/SKILL.md",
-      "bytes": 12844,
-      "sha256": "a9e268ca8cfde41218ca6694a13605fd00c9a328c2cbe7eb6ffe90bf608ec04e"
+      "bytes": 12684,
+      "sha256": "774f99bd3a8d2f3a5ac1cc25f590fac1141d75d836e0483998cd540117f6908e"
     },
     {
       "path": "source/ludis-continuum-v1.1.0/START-HERE.md",
@@ -558,8 +558,8 @@
     },
     {
       "path": "source/ludis-continuum-v1.1.0/agents/openai.yaml",
-      "bytes": 280,
-      "sha256": "5d71000a9a48db2e0a322197fc93cad7668bf7b6bc975bfd056982543a0a4882"
+      "bytes": 285,
+      "sha256": "0af8c5649bab44824b9c0f0121fe338d5ddf7ac372ec8f9b69cf004f40c11b1c"
     },
     {
       "path": "source/ludis-continuum-v1.1.0/assets/campaign.template/campaign-ledger.json",
