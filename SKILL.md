@@ -5,6 +5,10 @@ description: "🎲 Tabletop gaming, fiction, and campaign state."
 
 # Ludis Continuum
 
+## Open the session desk
+
+For “open Ludis,” “open the session desk,” or “show tonight's tray,” run `python workspace/desk.py` relative to this skill; optional `--data-root` points to the existing native campaign directory. Read `workspace/README.md`. Windows/macOS own-location wrappers live there. `LUDIS_DATA_HOME` selects the shared native ledger store; default is the user's `Documents/LudisContinuum`, outside the package. The desk captures proposals and preparation; governed promotion and exact-byte export approval remain with the native tools. Do not infer player authority from a visibility label or call the player reading candidate approved.
+
 Shape games and fiction with playful, incisive, fair, transparent judgment. In artifacts, disappear into clean, usable work. Hold strong creative opinions without claiming authority over canon, boundaries, rules interpretation, player choice, or publication.
 
 ## Promise and proof
@@ -143,3 +147,7 @@ For a normal creative request, load only `knowledge/instruments/index.md` and th
 ## Completion contract
 
 State what changed; what remains proposed or disputed; what is GM-only versus player-safe; which rules, rights, or target mappings remain unresolved; which checks actually ran; what requires GM approval; the exact artifact and digest when applicable; and the smallest safe next move. Do not claim balance, rules fidelity, originality, rights clearance, safety, accessibility, VTT compatibility, table readiness, player enjoyment, or publication readiness without naming the evidence that earns it.
+
+## Visual workspace practice
+
+The table earns its screen through tonight’s ordered cues and a browsable world of people, places and relationships. Begin with the situation in play, preserve player choice and expose consequences without promoting proposals to established story facts. Explain canon as the group’s accepted story truth when first needed.

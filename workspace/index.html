@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ludis · Campaign Table</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="skins.css">
+</head>
+<body data-skin="night">
+  <header class="masthead">
+    <div class="identity">
+      <small class="brand">LUDIS <span>CONTINUUM</span></small>
+      <div class="identity-line"><h1>Campaign Table</h1><span class="campaign-name" id="header-campaign">A place for the world in motion</span></div>
+    </div>
+    <div class="masthead-actions">
+      <span id="save-state" class="save-state" aria-live="polite">Opening the table…</span>
+      <button id="save" class="save-button" hidden>Save campaign</button>
+      <label class="skin-control">Working environment
+        <select id="skin"><option value="night">Night Routes · dark</option><option value="patchwork">Patchwork World · woven field</option></select>
+      </label>
+    </div>
+  </header>
+  <nav class="main-nav" aria-label="Campaign views">
+    <button data-tab="tray" class="active">Tonight <span class="nav-count" id="tray-count"></span></button>
+    <button data-tab="materials">World & relationships</button>
+    <button data-tab="capture">At the table</button>
+    <button data-tab="ledger">Ledger tools</button>
+    <a id="player-link" href="/player" target="_blank" rel="noopener">Player reading candidate ↗</a>
+  </nav>
+  <div id="notice" role="status" aria-live="polite"></div>
+
+  <main>
+    <section id="init" class="welcome" hidden>
+      <div class="welcome-story">
+        <span class="eyebrow">A WORLD THAT REMEMBERS</span>
+        <h2>Set the world<br><em>on the table.</em></h2>
+        <p>Keep the scene, its people, and the pressures in motion within reach. Record what the players do before deciding what it means.</p>
+        <div class="welcome-steps" aria-label="Campaign table rhythm"><span><b>01</b> Frame the moment</span><span><b>02</b> Follow the threads</span><span><b>03</b> Keep the consequence</span></div>
+      </div>
+      <div class="welcome-start">
+        <span class="eyebrow">OPEN A CAMPAIGN</span>
+        <h3>Give this world an identity.</h3>
+        <p>The campaign ledger lives in <span id="init-root"></span>, outside the Ludis package.</p>
+        <form id="init-form">
+          <label>Stable campaign ID <input name="id" required pattern="[a-z0-9][a-z0-9._-]*" placeholder="the-last-lantern"></label>
+          <label>Campaign title <input name="title" required placeholder="The Last Lantern"></label>
+          <button class="primary" type="submit">Create campaign →</button>
+        </form>
+        <div class="welcome-alternates">
+          <button id="example" type="button">Explore a labeled example</button>
+          <label class="import-label">Import a native v2 ledger <input id="import" type="file" accept=".json,application/json"></label>
+        </div>
+      </div>
+    </section>
+
+    <section id="load-error" class="load-error" hidden><span class="eyebrow">THE NATIVE LEDGER COULD NOT OPEN</span><h2>Keep the source intact.</h2><p id="load-error-message"></p><button id="retry" class="primary">Try opening again</button></section>
+    <div id="work" hidden>
+      <section id="tray" class="view">
+        <div class="view-intro"><div><span class="eyebrow">TONIGHT AT THE TABLE</span><h2 id="tonight-title">The next consequential choice.</h2><p id="tonight-context"></p></div><span class="view-aside" id="session-marker"></span></div>
+        <div class="session-board">
+          <div class="cue-column"><div class="column-heading"><span class="eyebrow">IN PLAY</span><span id="pin-count"></span></div><div id="tray-cards" class="cue-list"></div><button id="browse-material" class="subtle-action">+ Bring material to tonight</button></div>
+          <div class="scene-column"><div id="opening" class="opening"></div></div>
+          <aside class="margin-column">
+            <section class="horizon"><span class="eyebrow">THE NEAR HORIZON</span><p id="horizon"></p><p id="premise"></p></section>
+            <section class="prep-section"><div class="column-heading"><span class="eyebrow">BEFORE PLAY</span><span id="prep-count"></span></div><ol id="prep-list"></ol><details class="prep-editor"><summary>Edit preparation & session notes</summary><label>One preparation task per line<textarea id="prep"></textarea></label><label>Current session title<input id="session-title"></label><label>Session notes<textarea id="session-notes"></textarea></label></details></section>
+            <section class="authority-note"><span class="eyebrow">AUTHORITY</span><p>Tonight’s pins arrange material for play. They do not turn proposals into canon.</p></section>
+          </aside>
+        </div>
+      </section>
+
+      <section id="materials" class="view" hidden>
+        <div class="view-intro"><div><span class="eyebrow">THE LIVING WORLD</span><h2>Follow the threads.</h2><p>Read a fact beside its status, source, and actual connections.</p></div><span class="view-aside" id="world-count"></span></div>
+        <div class="world-layout">
+          <div class="world-index">
+            <label class="search-label">Find in this campaign<input id="filter" type="search" placeholder="Person, place, pressure, phrase…"></label>
+            <div class="scope-switch" aria-label="Material scope"><button data-scope="all" class="active">All</button><button data-scope="tonight">Tonight</button><button data-scope="unresolved">Unresolved</button></div>
+            <div id="inventory" class="inventory"></div>
+          </div>
+          <div class="world-reading">
+            <div id="object-view"></div>
+            <div id="compare-panel" hidden></div>
+            <details id="object-editor" hidden><summary>Edit proposed material</summary><p class="hint">Canon remains read-only here. Changes are proposals until governed promotion.</p><label>Title<input id="object-title"></label><label>Content<textarea id="object-content"></textarea></label><label>Linked stable IDs, separated by commas<input id="object-links"></label><label>Visibility label<select id="object-visibility"><option value="gm_only">GM only</option><option value="player_safe">Player-safe label — review prose before sharing</option></select></label><button id="apply-object">Apply proposal edits</button></details>
+          </div>
+          <aside class="relation-column"><span class="eyebrow">RELATIONSHIPS</span><div id="relation-map"></div></aside>
+        </div>
+      </section>
+
+      <section id="capture" class="view" hidden>
+        <div class="view-intro"><div><span class="eyebrow">AFTER A CHOICE, BEFORE AN EXPLANATION</span><h2>What happened?</h2><p>Capture the table’s observation. Decide its meaning with the ledger later.</p></div></div>
+        <div class="capture-layout"><div class="capture-writing"><form id="capture-form"><label>Give the moment a name<input name="title" required placeholder="The party lets the ferryman leave"></label><label>What kind of material?<select name="kind"><option value="observation">Observation</option><option value="session_note">Session note</option><option value="player-choice">Player choice, recorded as observation</option><option value="consequence">Proposed consequence</option><option value="npc">Person</option><option value="thread">Open thread</option><option value="rumor">Rumor</option></select></label><label>What happened, or what might follow?<textarea name="content" required placeholder="Use the players’ actual choice and what was visibly true…"></textarea></label><label>Connect to stable object IDs <span>(optional)</span><input name="links" placeholder="keeper, river-gate"></label><button class="primary" type="submit">Capture GM-only proposal →</button></form></div><aside class="capture-recent"><span class="eyebrow">RECENTLY CAPTURED</span><div id="recent-captures"></div></aside></div>
+      </section>
+
+      <section id="ledger" class="view" hidden>
+        <div class="view-intro"><div><span class="eyebrow">ADVANCED / NATIVE RECORD</span><h2>Ledger tools.</h2><p>The native v2 ledger is the authority. Saves validate and reject stale changes.</p></div></div>
+        <div class="ledger-layout"><div class="ledger-actions"><span class="eyebrow">CAMPAIGN FILE</span><p id="root"></p><button id="export">Export current ledger draft</button><label class="import-label">Import a native v2 ledger <input id="import-work" type="file" accept=".json,application/json"></label><a href="/api/export-player" download>Download player reading candidate ↗</a><div class="ledger-warning"><strong>Promotion stays governed.</strong><p>Active canon and exact player approvals use the Ludis tools. Review player prose before sharing.</p></div></div><div class="ledger-json"><label for="json">Native campaign-ledger.json</label><textarea id="json" spellcheck="false"></textarea></div></div>
+      </section>
+    </div>
+  </main>
+  <footer><span>LUDIS CONTINUUM</span><span>One ledger · Explicit authority · Player reading remains a candidate</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
+
