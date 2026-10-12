@@ -26,11 +26,9 @@ jobs:
         run: python -B -m unittest discover -s scripts/tests -v
       - name: Run curated runtime self-check
         run: python -B scripts/self_check.py
-      - name: Rebuild customer release
-        run: python tools/build_customer_release.py
-      - name: Verify customer release
-        run: python tools/verify_customer_release.py release-v1.1.0 --outer release-assets/v1.1.0/Ludis-Continuum-v1.1.0.zip
+      - name: Verify current release and deterministic reconstruction
+        run: python -B tools/verify_current_release.py
       - name: Verify documentation fingerprint
         run: python tools/build_documentation_fingerprint.py --check
-      - name: Require deterministic clean rebuild
+      - name: Require clean source after verification
         run: git diff --exit-code

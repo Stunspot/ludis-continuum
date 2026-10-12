@@ -1,0 +1,8 @@
+{
+  "schema": "cd-ludis-current-release/v1",
+  "version": "1.4.0",
+  "package": "release-candidates/native-icons-20261012/ludis-continuum-v1.4.0-complete.zip",
+  "package_sha256": "eb96c7ddf7825f2f391bad2e4fb588bbdc0bd961719e278c437d1e794e301e77",
+  "source_index": "release-candidates/native-icons-20261012/source-index.json",
+  "source_index_sha256": "eb76318da88043207e97d9066fb9dfe12c4a728059a0cdd1d2b6ca425e61c070"
+}
