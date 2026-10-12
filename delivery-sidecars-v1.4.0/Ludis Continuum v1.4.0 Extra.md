@@ -19,6 +19,9 @@ Public GitHub Repo: [ludis-continuum](https://github.com/Stunspot/ludis-continuu
 
 # Changelog
 
+2026-10-12 — Same-version presentation repair: recognizable browser icon, Windows shortcut icon and packaged macOS command/ICNS binding. Icon errors leave the desk usable. Native macOS execution remains unverified on the Windows repair host.
+
+
 v1.4.0 - Maintenance: Restores exact native campaign-ledger export from the session desk; clarifies that the post prompt is optional. Creative instruments, canon authority and campaign state remain compatible.
 
 v1.4.0 - October 5 maintenance: Corrects the woven alternative to a legible dark material environment within the accepted Campaign Table. Canon authority, ledger schema and supported play workflows remain compatible.

@@ -6,9 +6,11 @@ from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
 HERE=Path(__file__).resolve().parent;sys.path.insert(0,str(HERE.parent/'scripts'))
 from ledgerlib import validate,load_with_digest,save,exclusive_ledger_lock,LedgerWriteConflictError,LedgerBusyError
 from exportlib import project_ledger,ExportError
+sys.path.insert(0,str(HERE))
+from native_icons import bind_windows
 PRODUCT='ludis-continuum';TITLE='Ludis Continuum';PORT=8771
 ROOT=Path(os.environ.get('LUDIS_DATA_HOME',str(Path.home()/'Documents'/'LudisContinuum'))).expanduser().resolve();TOKEN=secrets.token_urlsafe(24)
-BUILD=hashlib.sha256(b''.join(p.name.encode()+p.read_bytes() for p in sorted(HERE.iterdir()) if p.is_file())).hexdigest()
+BUILD=hashlib.sha256(b''.join(p.name.encode()+p.read_bytes() for p in sorted(HERE.iterdir()) if p.is_file() and p.suffix!='.lnk')).hexdigest()
 def digest(data):return hashlib.sha256(data).hexdigest()
 def ledger_path():return ROOT/'campaign-ledger.json'
 def state():
@@ -44,8 +46,8 @@ class Handler(BaseHTTPRequestHandler):
                 data=player_html();self.send_response(200);self.send_header('Content-Type','text/html');self.send_header('Content-Disposition','attachment; filename="ludis-player-reading.candidate.html"');self.end_headers();return self.wfile.write(data)
             if path=='/api/export-ledger':return self.answer(ledger_path().read_bytes(),kind='application/json')
             name='index.html' if path=='/' else path.lstrip('/')
-            if name not in ('index.html','app.js','style.css','skins.css','night-routes.png','patchwork-world.png'):return self.answer({'error':'Not found'},404)
-            return self.answer((HERE/name).read_bytes(),kind={'index.html':'text/html','app.js':'text/javascript','style.css':'text/css','skins.css':'text/css','night-routes.png':'image/png','patchwork-world.png':'image/png'}[name])
+            if name not in ('index.html','app.js','style.css','skins.css','night-routes.png','patchwork-world.png','ludis.ico','ludis-icon.png'):return self.answer({'error':'Not found'},404)
+            return self.answer((HERE/name).read_bytes(),kind={'index.html':'text/html','app.js':'text/javascript','style.css':'text/css','skins.css':'text/css','night-routes.png':'image/png','patchwork-world.png':'image/png','ludis.ico':'image/x-icon','ludis-icon.png':'image/png'}[name])
         except (ValueError,ExportError) as e:self.answer({'error':str(e)},400)
         except OSError as e:self.answer({'error':str(e)},404)
     def do_POST(self):
@@ -94,6 +96,9 @@ def main():
     global ROOT
     if a.data_root:ROOT=Path(a.data_root).expanduser().resolve()
     if ROOT==HERE.parent or HERE.parent in ROOT.parents:raise SystemExit('Choose a data root outside the product installation; runtime records must remain portable.')
+    if not a.serve:
+        native_icon=bind_windows(HERE)
+        if native_icon['status']=='unavailable':print('Ludis icon binding unavailable; the session desk remains usable.',file=sys.stderr)
     if a.serve:ThreadingHTTPServer(('127.0.0.1',a.port),Handler).serve_forever();return
     for port in range(a.port,a.port+20):
         found=health(port)
