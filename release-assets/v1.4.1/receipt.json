@@ -1,0 +1,13 @@
+{
+  "schema": "cd-settled-family-build-receipt/v1",
+  "family": "ludis-continuum",
+  "version": "1.4.1",
+  "bytes": 76998082,
+  "sha256": "247b3da287e31a7d7e86dcc7708cebfe8a18898d34aefc3a13d4403b0a8720e8",
+  "baseline_commit": "b0fefd596d87826963af88ba321cadeaee5bb2b7",
+  "runtime_files": 100,
+  "runtime_unchanged": true,
+  "scope": "Frozen current identity/guide update; original qualification retained; fresh review and receiving separate",
+  "build_runtime": "Python3.12/classic zlib",
+  "prior_local_failure": "Python3.14 zlib-ng produced different compressed bytes; unchanged runtime bodies; corrected container-only before delivery"
+}

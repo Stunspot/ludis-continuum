@@ -23,3 +23,10 @@
 # Binary containers and media.
 *.webp binary
 *.mp4 binary
+
+# Preserve sealed current1.4.1 delivery bodies.
+/release-v1.4.1/** -text
+/release-candidates/v1.4.1/** -text
+/delivery-v1.4.1/** -text
+/delivery-sidecars-v1.4.1/** -text
+/release-assets/v1.4.1/** -text

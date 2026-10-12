@@ -1,8 +1,8 @@
 {
   "schema": "cd-ludis-current-release/v1",
-  "version": "1.4.0",
-  "package": "release-candidates/native-icons-20261012/ludis-continuum-v1.4.0-complete.zip",
-  "package_sha256": "eb96c7ddf7825f2f391bad2e4fb588bbdc0bd961719e278c437d1e794e301e77",
-  "source_index": "release-candidates/native-icons-20261012/source-index.json",
-  "source_index_sha256": "eb76318da88043207e97d9066fb9dfe12c4a728059a0cdd1d2b6ca425e61c070"
+  "version": "1.4.1",
+  "package": "release-candidates/v1.4.1/ludis-continuum-v1.4.1-complete.zip",
+  "package_sha256": "247b3da287e31a7d7e86dcc7708cebfe8a18898d34aefc3a13d4403b0a8720e8",
+  "source_index": "release-candidates/v1.4.1/source-index.json",
+  "source_index_sha256": "7a42018d88aebc568a6c7550299054c020962b3c129406d3bb41caa2d1d3c559"
 }

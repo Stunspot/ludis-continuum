@@ -1,0 +1,259 @@
+/* Ludis Campaign Table v1.4: two distinct working materials. The art layers are generated raster assets. */
+body[data-skin=night],body[data-skin=patchwork]{min-height:100vh;isolation:isolate}
+body[data-skin=night]{--ground:#0d1716;--paper:#182724;--paper-deep:#15221f;--ink:#e9e8d8;--muted:#b9c6b9;--line:#61766a;--accent:#f5ac70;--accent-ink:#12201c;--focus:#ffd19b;--header:#101b18;background:#0d1716;color:var(--ink);font-family:Georgia,"Times New Roman",serif}
+body[data-skin=night]:before{z-index:-1;background:linear-gradient(90deg,#0c1516e5 0%,#0c1516ae 52%,#0c1516da 100%),url('night-routes.png') center top / cover fixed no-repeat;opacity:1}
+body[data-skin=patchwork]{--ground:#2c251b;--paper:#2f281d;--paper-deep:#2f281d;--ink:#d2c0a3;--muted:#d2c0a3;--line:#978159;--accent:#d2c0a3;--accent-ink:#211c12;--focus:#d2c0a3;--header:#282218;background:#2c251b;color:var(--ink);font-family:Georgia,"Times New Roman",serif}
+body[data-skin=patchwork]:before{z-index:-1;background:linear-gradient(#2b251a40,#2b251a40),url('patchwork-world.png') center top / cover fixed no-repeat;opacity:1}
+body[data-skin] .masthead{position:relative;z-index:2;min-height:92px;padding:20px clamp(22px,3.2vw,58px);box-shadow:none}
+body[data-skin] .brand{font-size:10px;letter-spacing:.27em}
+body[data-skin] .brand span{opacity:.8}
+body[data-skin] h1{font-size:clamp(28px,2.6vw,40px);font-weight:400}
+body[data-skin] .campaign-name{font-size:13px}
+body[data-skin] .save-state{font-size:10px}
+body[data-skin] .skin-control{font-size:10px;letter-spacing:.1em}
+body[data-skin] .skin-control select{margin-top:6px;min-width:188px}
+body[data-skin] button,body[data-skin] a,body[data-skin] summary{transition:background-color .17s ease,color .17s ease,box-shadow .17s ease,transform .17s ease}
+body[data-skin] .main-nav{position:relative;z-index:1;min-height:53px}
+body[data-skin] .main-nav button{font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+body[data-skin] .main-nav a{font-size:10px}
+body[data-skin] main{position:relative;max-width:1780px;padding-top:30px}
+body[data-skin] .view-intro{margin-bottom:30px;padding-bottom:19px;border-bottom:1px solid var(--line)}
+body[data-skin] .view-intro h2{font-size:clamp(37px,3.5vw,62px);font-weight:400}
+body[data-skin] .view-intro p{color:var(--muted)}
+body[data-skin] .view-aside{color:var(--muted)}
+body[data-skin] .eyebrow{font-size:10px;letter-spacing:.16em}
+body[data-skin] .column-heading{border-bottom-color:var(--line)}
+body[data-skin] .column-heading span:last-child{color:var(--muted)}
+body[data-skin] .cue-text small,body[data-skin] .inventory-item small,body[data-skin] .relation-row button span,body[data-skin] .reading-facts small{color:var(--muted)}
+body[data-skin] .cue-text strong{font-size:19px;line-height:1.17}
+body[data-skin] .cue-actions button:hover{background:var(--paper-deep)}
+body[data-skin] .status,body[data-skin] .visibility{padding:5px 9px;letter-spacing:.07em}
+body[data-skin] .opening-content{max-width:760px}
+body[data-skin] .opening-links button,body[data-skin] .open-world,body[data-skin] .subtle-action,body[data-skin] .pin-action{color:var(--accent)}
+body[data-skin] .margin-column .eyebrow{color:var(--accent)}
+body[data-skin] .horizon p:first-of-type{color:var(--ink)}
+body[data-skin] .horizon p:last-child,body[data-skin] .authority-note p{color:var(--muted)}
+body[data-skin] .scope-switch{border-bottom-color:var(--line)}
+body[data-skin] .scope-switch button{color:var(--muted)}
+body[data-skin] .scope-switch button.active{color:var(--accent);box-shadow:inset 0 -3px var(--accent)}
+body[data-skin] .inventory-heading,body[data-skin] .relation-group>small{color:var(--muted);border-bottom-color:var(--line)}
+body[data-skin] .inventory-item,body[data-skin] .relation-row{border-bottom-color:var(--line)}
+body[data-skin] .inventory-item{color:var(--ink)}
+body[data-skin] .reading-content,body[data-skin] .reading-facts,body[data-skin] .provenance,body[data-skin] #object-editor,body[data-skin] #compare-panel{border-color:var(--line)}
+body[data-skin] .reading-top .eyebrow,body[data-skin] .provenance summary,body[data-skin] #object-editor summary,body[data-skin] .compare-head button,body[data-skin] .relation-column>.eyebrow{color:var(--accent)}
+body[data-skin] .reading-facts small{font-size:10px}
+body[data-skin] .relation-row button:first-child{color:var(--ink)}
+body[data-skin] .relation-row button:last-child{color:var(--accent)}
+body[data-skin] #apply-object{border-color:var(--accent);color:var(--accent)}
+body[data-skin] .capture-writing label span,body[data-skin] .capture-recent button small,body[data-skin] .capture-recent button span,body[data-skin] .ledger-warning p{color:var(--muted)}
+body[data-skin] .capture-recent button{border-bottom-color:var(--line);color:var(--ink)}
+body[data-skin] .ledger-actions .eyebrow,body[data-skin] .capture-recent>.eyebrow{color:var(--accent)}
+body[data-skin] .ledger-actions a{color:var(--accent)}
+body[data-skin] footer{border-top-color:var(--line);color:var(--muted)}
+body[data-skin] .welcome-start>.eyebrow,body[data-skin] .welcome-alternates button{color:var(--accent)}
+body[data-skin] .welcome-alternates{border-top-color:var(--line)}
+body[data-skin] .primary,body[data-skin] .save-button{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+body[data-skin] .primary:hover,body[data-skin] .save-button:hover{filter:none;box-shadow:0 4px 16px #0004;transform:translateY(-1px)}
+body[data-skin] :focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+
+/* Night Routes: mineral depth, edge light and a wide navigation field. */
+body[data-skin=night] .masthead{background:linear-gradient(90deg,#0b1312ee,#16231de0 65%,#18241ee0);border-bottom:1px solid #ad7d58a0;backdrop-filter:blur(18px)}
+body[data-skin=night] .brand,body[data-skin=night] .save-state,body[data-skin=night] .skin-control{color:#e9b982}
+body[data-skin=night] .brand span,body[data-skin=night] .campaign-name{color:#b8c9b8}
+body[data-skin=night] .skin-control select{background:#15241f;color:#efe9d5;border:1px solid #8b8f73;border-radius:8px;box-shadow:inset 0 1px #f7dcb21c}
+body[data-skin=night] .main-nav{background:#0c1514ca;border-bottom:1px solid #71907d80;backdrop-filter:blur(12px)}
+body[data-skin=night] .main-nav button{color:#c8d4c6;border-color:#6d89764f}
+body[data-skin=night] .main-nav button.active{background:linear-gradient(#283b32cf,#1d2e28d9);color:#ffe0b4;box-shadow:inset 0 -3px #e9a467}
+body[data-skin=night] .main-nav button:hover:not(.active){background:#25372fc9}
+body[data-skin=night] .main-nav a{color:#f1bf87}
+body[data-skin=night] #notice{background:#27352fd9;color:#f0e9d5;border-left:3px solid #e7ac75}
+body[data-skin=night] #notice.error{background:#4d2625;color:#fff0da;border-color:#e8a99b}
+body[data-skin=night] .view-intro .eyebrow{color:#e7af77}
+body[data-skin=night] .view-intro h2{color:#f0eddb;text-shadow:0 2px 28px #ffdcad1a}
+body[data-skin=night] .session-board{grid-template-columns:minmax(0,1fr) minmax(220px,310px);grid-template-areas:"scene margin" "cue cue";gap:27px 28px;min-height:0}
+body[data-skin=night] .scene-column{padding:0}
+body[data-skin=night] .opening{overflow:hidden;min-height:500px;border:1px solid #bd9a7357;border-radius:30px 6px 44px 8px;background:radial-gradient(ellipse at 23% 14%,#d89e5845,transparent 48%),radial-gradient(ellipse at 86% 85%,#84a48d24,transparent 54%),linear-gradient(130deg,#1e312ce5,#14211eea 58%,#0f1a19e8);box-shadow:0 30px 65px #020b0ac2,inset 0 1px #ffe0ad67,inset 0 0 52px #9b9a6d14;backdrop-filter:blur(17px) saturate(1.1);padding:clamp(26px,3.5vw,58px)}
+body[data-skin=night] .opening:before{inset:14px;border:1px solid #d7b18435;border-radius:19px 3px 33px 4px;box-shadow:inset 0 0 45px #ffc17708}
+body[data-skin=night] .opening-head{color:#f3bb7f}
+body[data-skin=night] .opening-number{color:#c1d0bd}
+body[data-skin=night] .opening-title{margin:50px 0 20px}
+body[data-skin=night] .opening h3{color:#f3edd9;line-height:1.02;text-shadow:0 2px 28px #ffc79126}
+body[data-skin=night] .opening-content{color:#e8ebdc;font-size:clamp(18px,1.55vw,23px)}
+body[data-skin=night] .opening-bottom{border-top-color:#b9a27a78}
+body[data-skin=night] .opening-links .eyebrow{color:#c7c8ad}
+body[data-skin=night] .status,body[data-skin=night] .visibility{border-color:#91aa8c;color:#e7ecda;background:#23352db0}
+body[data-skin=night] .status-proposed,body[data-skin=night] .status-disputed{border-color:#dc9975;color:#ffd0ad}
+body[data-skin=night] .visibility.gm{background:#623e35;color:#fff0d9;border-color:#c1806e}
+body[data-skin=night] .margin-column{padding:20px 0 12px 23px;border-left:1px solid #a580626b;backdrop-filter:blur(5px)}
+body[data-skin=night] .margin-column section+section{border-top-color:#748b7669}
+body[data-skin=night] .cue-column{padding:10px 0 18px;border-top:1px solid #c8a47880}
+body[data-skin=night] .cue-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+body[data-skin=night] .cue{min-height:95px;border:1px solid #68816d8c;border-radius:8px 18px 8px 18px;background:#15241fd9;box-shadow:inset 0 1px #d5ddc12b,0 9px 23px #02090787;backdrop-filter:blur(10px)}
+body[data-skin=night] .cue.selected{background:linear-gradient(120deg,#3f3d30e8,#213b30dc);border-color:#e0ab70;box-shadow:0 0 0 1px #e0ab7070,0 0 25px #edb07038,inset 0 1px #ffe1aa7c}
+body[data-skin=night] .cue-main{padding:15px 10px}
+body[data-skin=night] .cue-number{font-size:15px;color:#f4ba7b}
+body[data-skin=night] .cue-text strong{color:#f0ebd9}
+body[data-skin=night] .cue-actions{align-self:end;padding-bottom:7px}
+body[data-skin=night] .cue-actions button{color:#ecc08e}
+body[data-skin=night] .tray-empty{border-color:#859c847c;color:#cad6c7}
+body[data-skin=night] .tray-empty p{color:#f0e8d4}
+body[data-skin=night] .world-layout{grid-template-columns:minmax(230px,280px) minmax(0,1fr) minmax(220px,290px);gap:24px}
+body[data-skin=night] .world-index{border-top:1px solid #e1ab7b}
+body[data-skin=night] .world-reading,body[data-skin=night] .capture-writing{background:linear-gradient(137deg,#20342de8,#111f1cfa 75%);border:1px solid #9bb09063;border-radius:24px 6px 31px 8px;box-shadow:0 22px 48px #020b0aa8,inset 0 1px #dbd9aa5c;backdrop-filter:blur(16px)}
+body[data-skin=night] .world-reading{padding:clamp(25px,3vw,44px)}
+body[data-skin=night] .inventory-item[aria-current=true]{background:#365044dc;border-left-color:#e8ad72}
+body[data-skin=night] .relation-column{border-left-color:#849e8c88}
+body[data-skin=night] .relation-center{background:radial-gradient(ellipse at 14% 10%,#d3965753,transparent 66%),#2c4338;color:#fff0d6;border:1px solid #b6916c80;border-radius:12px}
+body[data-skin=night] .relation-center small{color:#f6c695}
+body[data-skin=night] .compare-grid>div{background:#2b3d34;color:#f1eddd;border-left-color:#e9b37e}
+body[data-skin=night] input,body[data-skin=night] select,body[data-skin=night] textarea{background:#172722;color:#f1f0df;border:1px solid #829987;border-radius:8px}
+body[data-skin=night] input::placeholder,body[data-skin=night] textarea::placeholder{color:#c0cfbd}
+body[data-skin=night] #json{background:#101916;color:#f1e7d1;border-color:#8b9c85}
+body[data-skin=night] .ledger-actions button,body[data-skin=night] .import-label{background:#1e3229;color:#e8e7d6;border-color:#7e927f}
+body[data-skin=night] .welcome{background:radial-gradient(ellipse at 20% 30%,#c0874a44,transparent 50%),linear-gradient(120deg,#12221eea 0 54%,#24382de9 54%);border:1px solid #8b9e7f70;border-radius:20px 4px 28px 5px;overflow:hidden}
+body[data-skin=night] .welcome-story{color:#f2eddb}
+body[data-skin=night] .welcome-story .eyebrow,body[data-skin=night] .welcome-story h2 em,body[data-skin=night] .welcome-steps b{color:#f0bb83}
+body[data-skin=night] .welcome-steps{color:#c9d2c5}
+body[data-skin=night] .welcome-start{background:#23372edb;color:#f1ebd8}
+body[data-skin=night] .welcome-start p{color:#c7d6c5}
+body[data-skin=night] .welcome-start input{background:#172722}
+body[data-skin=night] .load-error{background:#1b2a23e8;color:#f2e9d5;padding:35px;border:1px solid #a5a37d}
+
+/* Patchwork World: moss-dyed cloth, flax panels and a single madder thread. */
+body[data-skin=patchwork] .masthead{background:linear-gradient(100deg,#282218e8,#282319dc);color:#d2c0a3;border-bottom:4px solid #978159}
+body[data-skin=patchwork] .brand,body[data-skin=patchwork] .save-state,body[data-skin=patchwork] .skin-control{color:#d2c0a3}
+body[data-skin=patchwork] .brand span,body[data-skin=patchwork] .campaign-name{color:#d2c0a3}
+body[data-skin=patchwork] .skin-control select{background:#2f281d;color:#d2c0a3;border:1px solid #988159;border-radius:4px 14px 4px 14px}
+body[data-skin=patchwork] .main-nav{background:#292319d9;border-bottom:1px solid #968058;color:#d2c0a3}
+body[data-skin=patchwork] .main-nav button{color:#d2c0a3;border-color:#99825a40}
+body[data-skin=patchwork] .main-nav button.active{background:#2f281d;color:#d2c0a3;box-shadow:inset 0 -4px #211b12}
+body[data-skin=patchwork] .main-nav button:hover:not(.active){background:#2a241a}
+body[data-skin=patchwork] .main-nav a{color:#d2c0a3}
+body[data-skin=patchwork] #notice{background:#2f291d;color:#d2c0a3;border-left:4px solid #978059}
+body[data-skin=patchwork] #notice.error{background:#2f291d;color:#d2c0a3;border-color:#978059}
+body[data-skin=patchwork] .view-intro .eyebrow{color:#d2c0a3}
+body[data-skin=patchwork] .view-intro h2{color:#d2c0a3;text-shadow:0 1px #211b1280}
+body[data-skin=patchwork] .view-intro p{color:#d2c0a3}
+body[data-skin=patchwork] .session-board{grid-template-columns:minmax(225px,285px) minmax(0,1fr);grid-template-areas:"cue scene" "margin scene";gap:13px 27px;align-items:start;min-height:650px}
+body[data-skin=patchwork] .scene-column{padding:0;align-self:stretch}
+body[data-skin=patchwork] .opening{min-height:650px;padding:clamp(27px,3vw,48px);background:radial-gradient(ellipse at 84% 9%,#30291da3,transparent 50%),linear-gradient(110deg,#30291ded,#2f281df0);border:1px solid #978059;border-radius:19px 56px 24px 62px / 30px 19px 58px 24px;box-shadow:10px 14px 0 #211b1249,0 25px 45px #211b1275,inset 0 0 0 8px #211b1251}
+body[data-skin=patchwork] .opening:before{inset:15px;border:2px dashed #97805980;border-radius:11px 48px 18px 53px / 22px 13px 50px 18px}
+body[data-skin=patchwork] .opening-head{color:#d2c0a3}
+body[data-skin=patchwork] .opening-number{color:#d2c0a3}
+body[data-skin=patchwork] .opening-title{margin:45px 0 22px}
+body[data-skin=patchwork] .opening h3{color:#d2c0a3}
+body[data-skin=patchwork] .opening-content{color:#d2c0a3}
+body[data-skin=patchwork] .opening-bottom{border-top:2px dashed #978059}
+body[data-skin=patchwork] .status,body[data-skin=patchwork] .visibility{background:#30291dd9;border-color:#978059;color:#d2c0a3}
+body[data-skin=patchwork] .status-proposed,body[data-skin=patchwork] .status-disputed{color:#d2c0a3;border-color:#978059}
+body[data-skin=patchwork] .visibility.gm{background:#292319;color:#d2c0a3;border-color:#967f58}
+body[data-skin=patchwork] .cue-column{padding:13px 0 3px}
+body[data-skin=patchwork] .cue-list{gap:11px}
+body[data-skin=patchwork] .cue{background:#2e281ce8;border:1px solid #978058;border-radius:4px 21px 5px 18px;box-shadow:4px 6px 0 #211b1248;transform:rotate(-.5deg)}
+body[data-skin=patchwork] .cue:nth-child(even){transform:translateX(7px) rotate(.6deg);background:#2e281cec}
+body[data-skin=patchwork] .cue.selected{background:#30291d;border:2px solid #978059;box-shadow:4px 6px 0 #211b1244,0 0 0 3px #211b12ad}
+body[data-skin=patchwork] .cue-number{color:#d2c0a3;font-size:16px}
+body[data-skin=patchwork] .cue-text strong{color:#d2c0a3}
+body[data-skin=patchwork] .cue-actions button{color:#d2c0a3}
+body[data-skin=patchwork] .margin-column{grid-area:margin;border:0;padding:12px 13px 20px;background:#292319e5;color:#d2c0a3;border-radius:6px 28px 5px 22px;box-shadow:5px 6px 0 #211b1270}
+body[data-skin=patchwork] .margin-column .eyebrow{color:#d2c0a3}
+body[data-skin=patchwork] .margin-column .column-heading{border-color:#99825a83}
+body[data-skin=patchwork] .margin-column .column-heading span:last-child,body[data-skin=patchwork] .margin-column .horizon p:last-child,body[data-skin=patchwork] .margin-column .authority-note p{color:#d2c0a3}
+body[data-skin=patchwork] .margin-column .horizon p:first-of-type{color:#d2c0a3}
+body[data-skin=patchwork] .margin-column section+section{border-color:#99825a80;margin-top:20px;padding-top:16px}
+body[data-skin=patchwork] .margin-column .prep-editor summary{color:#d2c0a3}
+body[data-skin=patchwork] .tray-empty{border:2px dashed #967f58;background:#2f281db8}
+body[data-skin=patchwork] .tray-empty p{color:#d2c0a3}
+body[data-skin=patchwork] .world-layout{grid-template-columns:minmax(225px,285px) minmax(0,1fr) minmax(210px,270px);gap:20px}
+body[data-skin=patchwork] .world-index{border-top:3px solid #978058}
+body[data-skin=patchwork] .world-reading,body[data-skin=patchwork] .capture-writing{background:linear-gradient(125deg,#30291df4,#2f281df2);border:1px solid #978059;border-radius:12px 41px 18px 54px;box-shadow:6px 9px 0 #211b1255,0 17px 36px #211b1245;padding:clamp(23px,3vw,40px)}
+body[data-skin=patchwork] .inventory-item[aria-current=true]{background:#2f281d;border-left-color:#978059}
+body[data-skin=patchwork] .relation-column{border-left:2px dashed #978059}
+body[data-skin=patchwork] .relation-center{background:#292319;color:#d2c0a3;border-radius:5px 17px 5px 18px}
+body[data-skin=patchwork] .relation-center small{color:#d2c0a3}
+body[data-skin=patchwork] .compare-grid>div{background:#2f281d;border-left-color:#978059}
+body[data-skin=patchwork] input,body[data-skin=patchwork] select,body[data-skin=patchwork] textarea{background:#30291d;color:#d2c0a3;border:1px solid #978059;border-radius:4px 10px 4px 10px}
+body[data-skin=patchwork] input::placeholder,body[data-skin=patchwork] textarea::placeholder{color:#d2c0a3}
+body[data-skin=patchwork] .margin-column input,body[data-skin=patchwork] .margin-column textarea{background:#2f291d;color:#d2c0a3}
+body[data-skin=patchwork] #json{background:#282218;color:#d2c0a3;border-color:#978059}
+body[data-skin=patchwork] .ledger-actions button,body[data-skin=patchwork] .import-label{background:#2f291d;color:#d2c0a3;border-color:#978059}
+body[data-skin=patchwork] .welcome{background:linear-gradient(115deg,#292319e9 0 54%,#2f281df0 54%);border-radius:14px 44px 10px 37px;box-shadow:10px 14px 0 #211b1260;overflow:hidden}
+body[data-skin=patchwork] .welcome-story{color:#d2c0a3}
+body[data-skin=patchwork] .welcome-story .eyebrow,body[data-skin=patchwork] .welcome-story h2 em,body[data-skin=patchwork] .welcome-steps b{color:#d2c0a3}
+body[data-skin=patchwork] .welcome-steps{color:#d2c0a3}
+body[data-skin=patchwork] .welcome-start{background:#2f281ded;color:#d2c0a3}
+body[data-skin=patchwork] .welcome-start p{color:#d2c0a3}
+body[data-skin=patchwork] .welcome-start input{background:#30291d}
+body[data-skin=patchwork] .load-error{background:#2f291d;color:#d2c0a3;padding:35px;border:1px solid #978059}
+@media(max-width:1180px){
+ body[data-skin=night] .session-board{grid-template-columns:minmax(0,1fr) 250px;grid-template-areas:"scene margin" "cue cue"}
+ body[data-skin=patchwork] .session-board{grid-template-columns:220px minmax(0,1fr);grid-template-areas:"cue scene" "margin scene"}
+ body[data-skin] .world-layout{grid-template-columns:220px minmax(0,1fr);grid-template-areas:"index reading" "relation reading"}
+ body[data-skin] .relation-column{border-left:0;padding:0}
+}
+@media(max-width:760px){
+ body[data-skin] .masthead{padding:18px}
+ body[data-skin] .main-nav{padding:0 8px;overflow-x:auto}
+ body[data-skin] main{padding:20px 15px 55px}
+ body[data-skin] .view-intro h2{font-size:clamp(34px,9vw,48px)}
+ body[data-skin=night] .session-board,body[data-skin=patchwork] .session-board{display:flex;flex-direction:column;gap:18px}
+ body[data-skin] .scene-column{width:100%;order:1}
+ body[data-skin] .cue-column{width:100%;order:2}
+ body[data-skin] .margin-column{width:100%;order:3;display:block;margin:0;padding:22px}
+ body[data-skin] .margin-column section+section{border-top:1px solid var(--line);margin-top:18px;padding-top:16px}
+ body[data-skin=night] .opening,body[data-skin=patchwork] .opening{min-height:440px}
+ body[data-skin=night] .cue-list{grid-template-columns:1fr}
+ body[data-skin=patchwork] .cue:nth-child(even){transform:none}
+ body[data-skin] .world-layout{display:flex;flex-direction:column}
+ body[data-skin] .world-index,body[data-skin] .world-reading,body[data-skin] .relation-column{width:100%}
+ body[data-skin] .world-index{order:1}
+ body[data-skin] .world-reading{order:2}
+ body[data-skin] .relation-column{order:3}
+ body[data-skin] .capture-layout,body[data-skin] .ledger-layout,body[data-skin] .welcome{display:block}
+ body[data-skin] .capture-recent{margin-top:28px}
+}
+@media(max-width:450px){
+ body[data-skin] .opening h3{font-size:clamp(35px,11vw,46px)}
+ body[data-skin] .opening-bottom{flex-direction:column;align-items:start}
+ body[data-skin] .skin-control{min-width:180px}
+ body[data-skin] .compare-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){body[data-skin] button,body[data-skin] a,body[data-skin] summary{transition:none}}
+
+/* Contrast repairs from the populated render. Keep the woven material as depth, not text substrate. */
+body[data-skin=patchwork]:before{background:linear-gradient(#2e281cc9,#2e281cc9),url('patchwork-world.png') center top / cover fixed no-repeat}
+body[data-skin=patchwork] .view-intro{background:linear-gradient(95deg,#30291deb,#2f281ddb);padding:17px 22px;border:1px solid #988159;border-radius:6px 27px 5px 21px;box-shadow:5px 7px 0 #211b1236}
+body[data-skin=patchwork] .world-index{background:#2f281def;padding:16px 16px 22px;border-radius:4px 25px 5px 23px;box-shadow:4px 6px 0 #211b124a}
+body[data-skin=patchwork] .relation-column{background:#2f281de9;padding:17px;border-left:2px dashed #978059;border-radius:20px 5px 20px 5px;box-shadow:4px 6px 0 #211b123f}
+body[data-skin=patchwork] .world-index .inventory-heading,body[data-skin=patchwork] .relation-group>small,body[data-skin=patchwork] .relation-row button span{color:#d2c0a3}
+body[data-skin=patchwork] .world-index .scope-switch button{color:#d2c0a3}
+body[data-skin=patchwork] .world-index .scope-switch button.active{color:#d2c0a3}
+body[data-skin=patchwork] .relation-row button:first-child,body[data-skin=patchwork] .inventory-item{color:#d2c0a3}
+body[data-skin=patchwork] .view-intro .eyebrow{color:#d2c0a3}
+body[data-skin=patchwork] .view-intro h2{color:#d2c0a3}
+body[data-skin=patchwork] .view-intro p,body[data-skin=patchwork] .view-aside{color:#d2c0a3}
+body[data-skin=night] .opening:after{content:"";position:absolute;z-index:0;pointer-events:none;width:55%;height:120%;left:-20%;top:-70%;transform:rotate(-16deg);background:linear-gradient(90deg,transparent,#efbe7432 45%,transparent 75%);filter:blur(30px);opacity:.45}
+
+/* Patchwork scene and preparation share the surface without stretching one patch to the other's height. */
+@media(min-width:761px){
+ body[data-skin=patchwork] .session-board{grid-template-areas:"cue scene" "margin margin";align-items:start;min-height:0}
+ body[data-skin=patchwork] .scene-column{align-self:start}
+ body[data-skin=patchwork] .opening{min-height:590px}
+ body[data-skin=patchwork] .margin-column{display:grid;grid-template-columns:1fr 1fr minmax(150px,.6fr);gap:32px;align-items:start;padding:22px 27px;margin-top:6px}
+ body[data-skin=patchwork] .margin-column section+section{margin:0;padding:0 0 0 26px;border-top:0;border-left:1px solid #99825a80}
+}
+body[data-skin=patchwork] .main-nav button.active{color:#d2c0a3}
+body[data-skin=patchwork] .subtle-action,body[data-skin=patchwork] .opening-links button,body[data-skin=patchwork] .open-world{color:#d2c0a3}
+
+
+body[data-skin=patchwork]{--ground:#262117;--paper:#2c251b;--paper-deep:#282319;--ink:#d2c0a3;--muted:#d2c0a3;--line:#957f58;--accent:#d2c0a3;--accent-ink:#211c12;--focus:#d2c0a3;--header:#282218;background:#262117;color-scheme:dark}
+body[data-skin=patchwork]:before{background:linear-gradient(#262117df,#292319e8),url("patchwork-world.png") center top/cover fixed}
+
+body[data-skin=patchwork]{--ground:#211e16;--paper:#3e3727;--paper-deep:#2c291e;--ink:#f0e0bd;--muted:#d3c3a0;--line:#877353;--accent:#e5aa75;--accent-ink:#251a12;--focus:#efc692;--header:#272a1c;background:#211e16;color-scheme:dark}
+body[data-skin=patchwork]:before{background:linear-gradient(#201d17df,#30291de8),url("patchwork-world.png") center top/cover fixed}
+@media print{
+ body[data-skin=night],body[data-skin=patchwork]{background:#fff!important;color:#000!important}
+ body[data-skin]:before{display:none!important}
+ body[data-skin] .opening,body[data-skin] .world-reading,body[data-skin] .capture-writing,body[data-skin] .view-intro,body[data-skin] .margin-column{background:#fff!important;color:#000!important;box-shadow:none!important;border:1px solid #777!important}
+ body[data-skin] .opening *,body[data-skin] .world-reading *,body[data-skin] .margin-column *{color:#000!important;text-shadow:none!important}
+}

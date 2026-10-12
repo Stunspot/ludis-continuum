@@ -1,0 +1,15 @@
+{
+  "schema": "estate-maintenance-decision/v1",
+  "product_id": "ludis-continuum",
+  "baseline_version": "1.4.0",
+  "baseline_bundle_fingerprint": "sha256:86710cee8e8f1f9284054d5a8fd19876eb66cfb5b48eee708f1f3749a5250c04",
+  "baseline_package": "release-candidates/native-icons-20261012/ludis-continuum-v1.4.0-complete.zip",
+  "baseline_package_sha256": "eb96c7ddf7825f2f391bad2e4fb588bbdc0bd961719e278c437d1e794e301e77",
+  "kind": "update",
+  "effect": "restored_behavior",
+  "target_version": "1.4.1",
+  "revision": "L-r1+native-icons+distinct-1.4.1",
+  "reason": "Owner requires a distinct version for the accepted repaired product to be updateable;100runtime bodies and32creative cores unchanged.",
+  "recorded_before_packaging": "2026-10-12",
+  "review": "E:\\Indranet\\Nova\\projects\\project-records\\projects\\augment-estate-quality-repair\\records\\product-completion-20261010\\ludis-continuum\\FINAL-REVIEW-v1.4.1.md"
+}
