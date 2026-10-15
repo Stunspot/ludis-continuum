@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "runtime": "E:\\Github\\ludis-continuum\\verification\\startup-recovery-v150\\fresh-r3\\ludis-continuum-v1.5.0\\codex\\ludis-continuum",
+  "checks": [
+    "Native CMD: campaign entry controls visibly wait for delayed first GET",
+    "First attempted campaign click proceeds safely when initial data is ready",
+    "Ordinary campaign creation and session save succeed after delayed first click",
+    "First launch and ordinary use leave all shipped runtime files unchanged",
+    "Failed startup GET shows a useful retry and prevents premature campaign actions",
+    "Visible retry reconnects and resumes saved work after full process/browser restart",
+    "Campaign location chooser remains usable after startup recovery",
+    "Both launches and recovery preserve the entire runtime inventory",
+    "No browser exceptions during delayed startup, failure, retry or normal use"
+  ],
+  "files": 103,
+  "scratch": "C:\\Users\\user\\AppData\\Local\\Temp\\ludis-startup-WNLZOK",
+  "base": "http://127.0.0.1:31650",
+  "errors": [],
+  "scope": "Actual Windows CMD; controlled delayed first GET and one503, ordinary UI create/save, full restart and visible retry. No prepared campaign schema."
+}

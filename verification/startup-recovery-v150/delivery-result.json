@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "version": "1.5.0",
+  "revision": "purpose-led-gaming-table-r3-startup-recovery",
+  "zip": "E:\\Github\\ludis-continuum\\release-candidates\\v1.5.0-final-r3\\ludis-continuum-v1.5.0-complete.zip",
+  "sha256": "82ca4d8b73d018a142446e43ecbc07acfa69df8f4977e26ec4ed20541b9e651a",
+  "superseded_r2_sha256": "45588b683635ac693aeda101a59dcc9ef03390f56682f11c2673c9ad4122e6be",
+  "runtime_files": 103,
+  "changed_runtime_paths": [
+    "workspace/index.html",
+    "workspace/tabletop.js"
+  ],
+  "source_checks": "verification/startup-recovery-v150/source-test/result.json",
+  "fresh_native_checks": "verification/startup-recovery-v150/fresh-test/result.json",
+  "sidecars_unchanged": [
+    {
+      "path": "E:\\Github\\ludis-continuum\\delivery-sidecars-v1.5.0\\Ludis Continuum v1.5.0 Extra.md",
+      "sha256": "43e20136ca4d2a0afa9f4892be15d2e86e50498ae056e9942a097d079c76affc"
+    },
+    {
+      "path": "E:\\Github\\ludis-continuum\\delivery-sidecars-v1.5.0\\Ludis Continuum v1.5.0.md",
+      "sha256": "8ec7d870197fae70e9ca75a57cd31754e983bad1790714f087ee842874f41531"
+    },
+    {
+      "path": "E:\\Github\\ludis-continuum\\delivery-sidecars-v1.5.0\\Ludis Continuum.png",
+      "sha256": "37ac4d7409974ee7495dc0295f8943862aeec086da522c8e9ec458a78823d116"
+    }
+  ],
+  "history_preserved": true
+}

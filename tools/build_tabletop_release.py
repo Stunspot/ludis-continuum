@@ -1,7 +1,7 @@
 """Build the1.5 gaming-table update against the accepted source selection."""
 import hashlib,io,json,zipfile
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1];VERSION='1.5.0';SLUG='ludis-continuum';PREFIX=f'{SLUG}-v{VERSION}/';DEST=ROOT/'release-candidates'/f'v{VERSION}-final-r2'
+ROOT=Path(__file__).resolve().parents[1];VERSION='1.5.0';SLUG='ludis-continuum';PREFIX=f'{SLUG}-v{VERSION}/';DEST=ROOT/'release-candidates'/f'v{VERSION}-final-r3'
 def sha(data):return hashlib.sha256(data).hexdigest()
 def encoded(value):return (json.dumps(value,ensure_ascii=False,indent=2)+'\n').encode()
 def inventory(values):return [{'path':p,'bytes':len(b),'sha256':sha(b)} for p,b in sorted(values.items())]
@@ -17,9 +17,9 @@ def main():
     previous=json.loads((ROOT/'release-candidates/v1.4.1/source-index.json').read_text(encoding='utf-8'))
     names={r['path'] for r in previous['files']}|{'workspace/tabletop.py','workspace/tabletop.js','workspace/tabletop.css','RELEASE-NOTES-v1.5.0.md','verification/tabletop-v15/DESIGN.md','verification/tabletop-v15/result.json','verification/tabletop-v15.cjs','tools/build_tabletop_release.py'}
     names.discard('workspace/Open Ludis.lnk')  # Host-bound shortcuts are created by their installer, not shipped.
-    names.update({'verification/launch-immutability.cjs','verification/launch-immutability-source/result.json'})
+    names.update({'verification/launch-immutability.cjs','verification/launch-immutability-source/result.json','verification/startup-recovery.cjs','verification/startup-recovery-v150/source-test/result.json'})
     source={n:(ROOT/n).read_bytes() for n in sorted(names)}
-    index={'schema':'cd-canonical-source-index/v1','component':SLUG,'version':VERSION,'revision':'purpose-led-gaming-table-r2-immutable-startup','selection_basis':'Accepted1.4.1 source selection plus substantive1.5 workflow implementation and bounded first-use evidence','files':inventory(source)}
+    index={'schema':'cd-canonical-source-index/v1','component':SLUG,'version':VERSION,'revision':'purpose-led-gaming-table-r3-startup-recovery','selection_basis':'Accepted1.4.1 source selection plus substantive1.5 workflow implementation and bounded first-use evidence','files':inventory(source)}
     index_raw=encoded(index);(DEST/'source-index.json').write_bytes(index_raw)
     runtime_files={'SKILL.md','LICENSE.md','EXPORTS-AND-VTT.md','SECURITY.md','SUPPORT.md'};runtime_dirs={'agents','assets','examples','fallbacks','knowledge','schemas','scripts','workspace'}
     runtime={n:b for n,b in source.items() if n in runtime_files or n.split('/')[0] in runtime_dirs}
