@@ -10,6 +10,10 @@ It does **not** replace a GM, certify balance, reproduce a game system, decide c
 
 [Project site](https://stunspot.github.io/ludis-continuum/) | [Install and start](START-HERE.md) | [Operating guide](DOCUMENTATION.md) | [Trust and evidence](PROVENANCE.md) | [Support](SUPPORT.md)
 
+## Open your gaming table
+
+Version 1.5.0 adds a usable offline table for the things surrounding play. Open `workspace/Open Ludis.cmd` on Windows or `Open Ludis.command` on macOS. Choose or create your campaign, link your RPG folders, and keep maps, handouts, characters, session notes, dice and encounter order within reach. The table resumes your saved session; creative generation belongs to the Ludis skill in your AI conversation. [Read the table guide](workspace/README.md).
+
 ## Who it is for
 
 - A GM who wants situations with several viable approaches instead of a disguised plot.

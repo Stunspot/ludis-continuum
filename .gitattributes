@@ -4,8 +4,6 @@
 # Windows-native text exceptions.
 *.bat text eol=crlf
 *.cmd text eol=crlf
-# The accepted Ludis launcher is an LF-authored cross-platform release body.
-"workspace/Open Ludis.cmd" text eol=lf
 
 # Binary containers and media.
 *.zip binary

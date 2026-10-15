@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "runtime": "C:\\Users\\user\\AppData\\Local\\Temp\\ludis-startup-candidate-tcx9cqpi\\ludis-continuum",
+  "checks": [
+    "No host-bound shortcut distributed",
+    "Actual Windows CMD reaches empty-start campaign entrance",
+    "Campaign and session saved through ordinary UI outside installation",
+    "Entire shipped runtime remains byte-identical after actual launch and use",
+    "Direct Python without -B resumes campaign after full process restart",
+    "Full runtime has no added, deleted, or changed files after both entry routes",
+    "No browser exceptions"
+  ],
+  "files": 103,
+  "scratch": "C:\\Users\\user\\AppData\\Local\\Temp\\ludis-immutable-iqdn37",
+  "base": "http://127.0.0.1:18977",
+  "errors": [],
+  "scope": "Windows native CMD and direct Python; macOS wrapper inspected only",
+  "apparatus_note": "First probe stopped on a test-only assumption that session.title was the stored field; corrected to session_title. Original failure.txt is retained beside this result. The corrected full workflow passed."
+}

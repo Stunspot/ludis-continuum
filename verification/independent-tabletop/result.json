@@ -1,0 +1,12 @@
+{
+  "checks": [
+    "Actual native launcher reaches new-user campaign entrance",
+    "Owner RPG library is found from current estate pointer",
+    "Failed source can be corrected directly and read",
+    "Invalid dice recover without losing the session",
+    "Prepared adventure supports real choices and is available at the table"
+  ],
+  "sourceOriginal": "# Sky harbor\nThe bell keeper wants safe passage, not money.",
+  "scratch": "C:\\Users\\user\\AppData\\Local\\Temp\\ludis-independent-32ZYPP",
+  "base": "http://127.0.0.1:18975"
+}

@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 """Ludis session desk around the governed native v2 ledger."""
-import argparse,base64,hashlib,html,json,os,re,secrets,subprocess,sys,tempfile,time,urllib.parse,urllib.request,webbrowser
+import sys
+sys.dont_write_bytecode = True
+import argparse,base64,hashlib,html,json,os,re,secrets,subprocess,tempfile,time,urllib.parse,urllib.request,webbrowser
 from pathlib import Path
 from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
 HERE=Path(__file__).resolve().parent;sys.path.insert(0,str(HERE.parent/'scripts'))
 from ledgerlib import validate,load_with_digest,save,exclusive_ledger_lock,LedgerWriteConflictError,LedgerBusyError
 from exportlib import project_ledger,ExportError
 sys.path.insert(0,str(HERE))
-from native_icons import bind_windows
+import tabletop
 PRODUCT='ludis-continuum';TITLE='Ludis Continuum';PORT=8771
-ROOT=Path(os.environ.get('LUDIS_DATA_HOME',str(Path.home()/'Documents'/'LudisContinuum'))).expanduser().resolve();TOKEN=secrets.token_urlsafe(24)
+ROOT=tabletop.initial_root();TOKEN=secrets.token_urlsafe(24)
 BUILD=hashlib.sha256(b''.join(p.name.encode()+p.read_bytes() for p in sorted(HERE.iterdir()) if p.is_file() and p.suffix!='.lnk')).hexdigest()
 def digest(data):return hashlib.sha256(data).hexdigest()
 def ledger_path():return ROOT/'campaign-ledger.json'
@@ -25,7 +27,7 @@ def player_html():
     # Campaign metadata, table contract, provenance, assets and arbitrary data are
     # intentionally absent from this standalone reading projection.
     cards=''.join('<article><small>'+html.escape(o.get('kind',''))+'</small><h2>'+html.escape(o.get('title') or o['id'])+'</h2><pre>'+html.escape(o.get('content') or '')+'</pre></article>' for o in objects)
-    return ('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ludis · Player reading candidate</title><style>body{margin:0;background:#f0e9d7;color:#342c22;font:18px/1.6 Georgia}main{max-width:850px;margin:50px auto;padding:25px}h1{font-size:42px}article{padding:25px 0;border-top:1px solid #b9a888}small{font:12px system-ui;letter-spacing:.15em}pre{font:inherit;white-space:pre-wrap;overflow-wrap:anywhere}@media print{body{background:white}}</style><main><small>LUDIS CONTINUUM / PLAYER READING</small><h1>At the table</h1><p>Filtered reading candidate. Only active, eligible player-safe objects are included. GM must review the exact content before sharing; visibility labels cannot detect prose spoilers.</p>'+cards+'</main></html>').encode()
+    return ('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ludis Â· Player reading candidate</title><style>body{margin:0;background:#f0e9d7;color:#342c22;font:18px/1.6 Georgia}main{max-width:850px;margin:50px auto;padding:25px}h1{font-size:42px}article{padding:25px 0;border-top:1px solid #b9a888}small{font:12px system-ui;letter-spacing:.15em}pre{font:inherit;white-space:pre-wrap;overflow-wrap:anywhere}@media print{body{background:white}}</style><main><small>LUDIS CONTINUUM / PLAYER READING</small><h1>At the table</h1><p>Filtered reading candidate. Only active, eligible player-safe objects are included. GM must review the exact content before sharing; visibility labels cannot detect prose spoilers.</p>'+cards+'</main></html>').encode()
 def health(port):
     try:
         with urllib.request.urlopen(f'http://127.0.0.1:{port}/health',timeout=.3) as r:return json.load(r)
@@ -38,24 +40,29 @@ class Handler(BaseHTTPRequestHandler):
         try:
             expected=f'http://127.0.0.1:{self.server.server_port}'
             if self.headers.get('Host')!=f'127.0.0.1:{self.server.server_port}' or self.headers.get('Origin',expected)!=expected:return self.answer({'error':'Use the workspace loopback address'},403)
-            path=urllib.parse.urlsplit(self.path).path
-            if path=='/health':return self.answer({'product':PRODUCT,'root':str(ROOT),'ui':str(HERE),'build':BUILD,'port':self.server.server_port})
+            parsed=urllib.parse.urlsplit(self.path);path=parsed.path
+            result=tabletop.get(sys.modules[__name__],self,path,urllib.parse.parse_qs(parsed.query))
+            if result is False:return
+            if result is not None:return self.answer(result)
+            if path=='/health':return self.answer({'product':PRODUCT,'root':str(ROOT),'ui':str(HERE),'build':BUILD,'port':self.server.server_port,'pid':os.getpid()})
             if path=='/api/state':return self.answer(state())
             if path=='/player':return self.answer(player_html(),kind='text/html; charset=utf-8')
             if path=='/api/export-player':
                 data=player_html();self.send_response(200);self.send_header('Content-Type','text/html');self.send_header('Content-Disposition','attachment; filename="ludis-player-reading.candidate.html"');self.end_headers();return self.wfile.write(data)
             if path=='/api/export-ledger':return self.answer(ledger_path().read_bytes(),kind='application/json')
             name='index.html' if path=='/' else path.lstrip('/')
-            if name not in ('index.html','app.js','style.css','skins.css','night-routes.png','patchwork-world.png','ludis.ico','ludis-icon.png'):return self.answer({'error':'Not found'},404)
-            return self.answer((HERE/name).read_bytes(),kind={'index.html':'text/html','app.js':'text/javascript','style.css':'text/css','skins.css':'text/css','night-routes.png':'image/png','patchwork-world.png':'image/png','ludis.ico':'image/x-icon','ludis-icon.png':'image/png'}[name])
+            if name not in ('index.html','app.js','style.css','skins.css','night-routes.png','patchwork-world.png','ludis.ico','ludis-icon.png','tabletop.js','tabletop.css'):return self.answer({'error':'Not found'},404)
+            return self.answer((HERE/name).read_bytes(),kind={'index.html':'text/html','app.js':'text/javascript','tabletop.js':'text/javascript','tabletop.css':'text/css','style.css':'text/css','skins.css':'text/css','night-routes.png':'image/png','patchwork-world.png':'image/png','ludis.ico':'image/x-icon','ludis-icon.png':'image/png'}[name])
         except (ValueError,ExportError) as e:self.answer({'error':str(e)},400)
         except OSError as e:self.answer({'error':str(e)},404)
     def do_POST(self):
         try:
             if self.headers.get('Host')!=f'127.0.0.1:{self.server.server_port}' or self.headers.get('X-Desk-Token')!=TOKEN or self.headers.get('Origin')!=f'http://127.0.0.1:{self.server.server_port}':return self.answer({'error':'Refresh the desk to renew authorization'},403)
             size=int(self.headers.get('Content-Length','0'))
-            if not 0<size<=8000000:raise ValueError('Ledger size limit is 8 MB')
+            if not 0<size<=75000000:raise ValueError('Choose files totaling less than 50 MB, or link their folder.')
             obj=json.loads(self.rfile.read(size))
+            result=tabletop.post(sys.modules[__name__],self.path,obj)
+            if result is not None:return self.answer(result)
             if self.path=='/api/validate':
                 errors=validate(obj['ledger'])
                 if errors:raise ValueError('Native ledger validation failed: '+'; '.join(errors[:8]))
@@ -96,9 +103,6 @@ def main():
     global ROOT
     if a.data_root:ROOT=Path(a.data_root).expanduser().resolve()
     if ROOT==HERE.parent or HERE.parent in ROOT.parents:raise SystemExit('Choose a data root outside the product installation; runtime records must remain portable.')
-    if not a.serve:
-        native_icon=bind_windows(HERE)
-        if native_icon['status']=='unavailable':print('Ludis icon binding unavailable; the session desk remains usable.',file=sys.stderr)
     if a.serve:ThreadingHTTPServer(('127.0.0.1',a.port),Handler).serve_forever();return
     for port in range(a.port,a.port+20):
         found=health(port)
@@ -109,7 +113,7 @@ def main():
         opts={'stdin':subprocess.DEVNULL,'stdout':subprocess.DEVNULL,'stderr':subprocess.DEVNULL}
         if os.name=='nt':opts['creationflags']=subprocess.CREATE_NO_WINDOW|subprocess.DETACHED_PROCESS
         else:opts['start_new_session']=True
-        child=subprocess.Popen([sys.executable,str(Path(__file__).resolve()),'--serve','--port',str(port),'--data-root',str(ROOT)],**opts)
+        child=subprocess.Popen([sys.executable,'-B',str(Path(__file__).resolve()),'--serve','--port',str(port),'--data-root',str(ROOT)],**opts)
         for _ in range(40):
             time.sleep(.1);found=health(port)
             if found and found.get('product')==PRODUCT and found.get('root')==str(ROOT) and found.get('ui')==str(HERE) and found.get('build')==BUILD:

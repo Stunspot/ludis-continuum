@@ -1,8 +1,8 @@
 {
   "schema": "cd-ludis-current-release/v1",
-  "version": "1.4.1",
-  "package": "release-candidates/v1.4.1/ludis-continuum-v1.4.1-complete.zip",
-  "package_sha256": "247b3da287e31a7d7e86dcc7708cebfe8a18898d34aefc3a13d4403b0a8720e8",
-  "source_index": "release-candidates/v1.4.1/source-index.json",
-  "source_index_sha256": "7a42018d88aebc568a6c7550299054c020962b3c129406d3bb41caa2d1d3c559"
+  "version": "1.5.0",
+  "package": "release-candidates/v1.5.0-final-r2/ludis-continuum-v1.5.0-complete.zip",
+  "package_sha256": "45588b683635ac693aeda101a59dcc9ef03390f56682f11c2673c9ad4122e6be",
+  "source_index": "release-candidates/v1.5.0-final-r2/source-index.json",
+  "source_index_sha256": "50b5899bb6a4da7141324553b3d675b85fd69ae6807403e2ce6d2fc3341bd574"
 }

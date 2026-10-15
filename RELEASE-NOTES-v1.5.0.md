@@ -1,0 +1,7 @@
+# Ludis Continuum 1.5.0
+
+Ludis now opens as a player's and GM's working table. A campaign/location chooser replaces the assumed Documents data root. Existing campaign work can be resumed; ordinary RPG folders, documents, maps, images and audio can be brought into play. Tonight combines session preparation, pinned material, characters/resources, actual dice rolls, encounter order, play notes and a portable recap. People & world and Create & prepare make campaign material useful without exposing its storage schema. Creative requests can carry the campaign context into Ludis in the conversational host.
+
+This is a capability update from accepted 1.4.1. The original 32 creative cores and native export tooling are retained. Campaign data stays outside the installation; existing user files are not blanket-migrated. The table's source links, character resources and session tools are saved separately beside the compatible native campaign ledger.
+
+The Windows browser journey was exercised from the real launcher without a pre-created ledger or --data-root, through campaign creation, folder linking, Word/text/image reading, file import, session work, return/reload, path recovery, session export, both themes and a narrow viewport. A native folder dialog is implemented; its interactive selection and native macOS behavior are not yet observed in the recorded automated run. No live player-group usability or external VTT compatibility claim is added.

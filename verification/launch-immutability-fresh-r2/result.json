@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "runtime": "C:\\Users\\user\\AppData\\Local\\Temp\\ludis-r2-extract-udvw0aef\\ludis-continuum-v1.5.0\\codex\\ludis-continuum",
+  "checks": [
+    "No host-bound shortcut distributed",
+    "Actual Windows CMD reaches empty-start campaign entrance",
+    "Campaign and session saved through ordinary UI outside installation",
+    "Entire shipped runtime remains byte-identical after actual launch and use",
+    "Direct Python without -B resumes campaign after full process restart",
+    "Full runtime has no added, deleted, or changed files after both entry routes",
+    "No browser exceptions"
+  ],
+  "files": 103,
+  "scratch": "C:\\Users\\user\\AppData\\Local\\Temp\\ludis-immutable-cdxexi",
+  "base": "http://127.0.0.1:18977",
+  "errors": [],
+  "scope": "Windows native CMD and direct Python; macOS wrapper inspected only"
+}

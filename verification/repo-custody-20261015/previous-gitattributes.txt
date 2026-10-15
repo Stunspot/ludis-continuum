@@ -1,0 +1,32 @@
+# CD line-ending policy: LF for authored text; explicit exceptions below.
+* text=auto eol=lf
+
+# Windows-native text exceptions.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+# The accepted Ludis launcher is an LF-authored cross-platform release body.
+"workspace/Open Ludis.cmd" text eol=lf
+
+# Binary containers and media.
+*.zip binary
+*.docx binary
+*.xlsx binary
+*.pptx binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.icns binary
+
+# Binary containers and media.
+*.webp binary
+*.mp4 binary
+
+# Preserve sealed current1.4.1 delivery bodies.
+/release-v1.4.1/** -text
+/release-candidates/v1.4.1/** -text
+/delivery-v1.4.1/** -text
+/delivery-sidecars-v1.4.1/** -text
+/release-assets/v1.4.1/** -text

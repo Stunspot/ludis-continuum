@@ -2,6 +2,10 @@
 
 This guide covers every supported distribution target for the standalone repository: manual skill placement in Codex or Claude Code, project-scoped placement, and a host-neutral copy/paste fallback. There is no marketplace package or one-click installer in this repository.
 
+## Open the visual table
+
+Run `workspace/Open Ludis.cmd` (Windows) or `workspace/Open Ludis.command` (macOS). Choose a campaign from the first screen; **Campaigns & location** can change its folder at any time. Link ordinary RPG material in **Materials & maps**, then bring what matters to **Tonight**. The [gaming table guide](workspace/README.md) covers first use, session work, sources, backup and recovery.
+
 ## Requirements
 
 - Git for clone/update workflows, or a downloaded source archive.
